@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/medical_knowledge.html",
       "/posts/000_test_post/index.html"
     ]
   }

@@ -4,7 +4,14 @@
     "href": "index.html",
     "title": "Playing with LLM prompts",
     "section": "",
-    "text": "A test post\n\n\n\nLLMs\n\nprompting\n\nlogic\n\n\n\nAn example post from a Jupyter notebook\n\n\n\n\n\nFeb 2, 2024\n\n\nAn LLM User\n\n\n\n\n\nNo matching items"
+    "text": "Prompting for medical knowledge\n\n\n\nLLMs\n\nMedical Knowledge\n\n\n\nHow do you get LLMs to give accurate medical responses\n\n\n\n\n\nSep 2, 2025\n\n\nEmily\n\n\n\n\n\n\n\n\n\n\n\n\nA test post\n\n\n\nLLMs\n\nprompting\n\nlogic\n\n\n\nAn example post from a Jupyter notebook\n\n\n\n\n\nFeb 2, 2024\n\n\nAn LLM User\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/medical_knowledge.html",
+    "href": "posts/medical_knowledge.html",
+    "title": "Prompting for medical knowledge",
+    "section": "",
+    "text": "Hello\n\nprint(\"Hello World\")\n\nHello World"
   },
   {
     "objectID": "posts/000_test_post/index.html",
