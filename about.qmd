@@ -2,7 +2,7 @@
 title: About
 image: profile.jpg
 about:
-  template: minty
+  template: jolla
 ---
 
 This blog is about my exploration and experimentation with LLMs.
