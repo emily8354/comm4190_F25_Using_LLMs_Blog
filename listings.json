@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/003_politeness/politeness.html",
       "/posts/002_animal_lookalike/animal_lookalike.html",
       "/posts/001_first_post/first_post.html",
       "/posts/000_test_post/index.html"

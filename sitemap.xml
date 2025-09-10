@@ -2,22 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/index.html</loc>
-    <lastmod>2025-09-04T20:59:22.931Z</lastmod>
+    <lastmod>2025-09-10T22:32:33.286Z</lastmod>
   </url>
   <url>
-    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/000_test_post/index.html</loc>
-    <lastmod>2025-09-04T20:59:22.932Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/002_animal_lookalike/animal_lookalike.html</loc>
-    <lastmod>2025-09-04T20:59:23.078Z</lastmod>
+    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/003_politeness/politeness.html</loc>
+    <lastmod>2025-09-10T22:32:33.433Z</lastmod>
   </url>
   <url>
     <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/001_first_post/first_post.html</loc>
-    <lastmod>2025-09-04T20:59:22.945Z</lastmod>
+    <lastmod>2025-09-10T22:32:33.299Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/002_animal_lookalike/animal_lookalike.html</loc>
+    <lastmod>2025-09-10T22:32:33.432Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/000_test_post/index.html</loc>
+    <lastmod>2025-09-10T22:32:33.287Z</lastmod>
   </url>
   <url>
     <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/about.html</loc>
-    <lastmod>2025-09-04T20:59:22.931Z</lastmod>
+    <lastmod>2025-09-10T22:32:33.286Z</lastmod>
   </url>
 </urlset>
