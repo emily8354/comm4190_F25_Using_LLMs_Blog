@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Playing with LLM prompts",
     "section": "",
-    "text": "Prompt:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMind Your Manners\n\n\n\nLLMs\n\nPrompting\n\n\n\nTesting if ChatGPT has better responses if the user is polite\n\n\n\n\n\nSep 10, 2025\n\n\nEmily\n\n\n\n\n\n\n\n\n\n\n\n\nWhat animal do I look like?\n\n\n\nLLMs\n\nPhoto\n\n\n\nUsing ChatGPT to see what animals we look like\n\n\n\n\n\nSep 4, 2025\n\n\nEmily\n\n\n\n\n\n\n\n\n\n\n\n\nMy first post!\n\n\n\nLLMs\n\nPost\n\n\n\nFun, Fabulous, First Post\n\n\n\n\n\nSep 2, 2025\n\n\nEmily\n\n\n\n\n\n\n\n\n\n\n\n\nA test post\n\n\n\nLLMs\n\nprompting\n\nlogic\n\n\n\nAn example post from a Jupyter notebook\n\n\n\n\n\nFeb 2, 2024\n\n\nAn LLM User\n\n\n\n\n\nNo matching items"
+    "text": "Travel Planner: ChatGPT\n\n\n\nLLMs\n\nTravel\n\n\n\nAsking ChatGPT to plan spring break\n\n\n\n\n\nSep 11, 2025\n\n\nEmily\n\n\n\n\n\n\n\n\n\n\n\n\nMind Your Manners\n\n\n\nLLMs\n\nPrompting\n\n\n\nTesting if ChatGPT has better responses if the user is polite\n\n\n\n\n\nSep 10, 2025\n\n\nEmily\n\n\n\n\n\n\n\n\n\n\n\n\nWhat animal do I look like?\n\n\n\nLLMs\n\nPhoto\n\n\n\nUsing ChatGPT to see what animals we look like\n\n\n\n\n\nSep 4, 2025\n\n\nEmily\n\n\n\n\n\n\n\n\n\n\n\n\nMy first post!\n\n\n\nLLMs\n\nPost\n\n\n\nFun, Fabulous, First Post\n\n\n\n\n\nSep 2, 2025\n\n\nEmily\n\n\n\n\n\n\n\n\n\n\n\n\nA test post\n\n\n\nLLMs\n\nprompting\n\nlogic\n\n\n\nAn example post from a Jupyter notebook\n\n\n\n\n\nFeb 2, 2024\n\n\nAn LLM User\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/003_politeness/politeness.html",
@@ -86,49 +86,49 @@
   {
     "objectID": "posts/004_travel_planner/travel_planner.html",
     "href": "posts/004_travel_planner/travel_planner.html",
-    "title": "🌴 Puerto Rico",
+    "title": "Travel Planner: ChatGPT",
     "section": "",
-    "text": "---\ntitle: \"Personal Trainer: ChatGPT!\"\ndescription: \"Creating a workout plan with ChatGPT\" \nauthor: \"Emily\"s\ndate: \"9/11/2025\"\ncategories:\n  - LLMs\n  - Working out\n---\nEven though it is quite early still and spring break is next semester, it’s never too early to start planning a vacation! I wanted to use ChatGPT to help me think of potential spring break plans."
+    "text": "Even though it is quite early still and spring break is next semester, it’s never too early to start planning a vacation! I wanted to use ChatGPT to help me think of potential spring break plans."
   },
   {
     "objectID": "posts/004_travel_planner/travel_planner.html#what-to-expect-in-early-march-travel",
     "href": "posts/004_travel_planner/travel_planner.html#what-to-expect-in-early-march-travel",
-    "title": "🌴 Puerto Rico",
+    "title": "Travel Planner: ChatGPT",
     "section": "What to Expect in Early-March Travel",
     "text": "What to Expect in Early-March Travel\n\nCaribbean / islands = warm, pleasant, fairly dry. (Holland America Line)\nU.S. destinations: some southern places will already be warm; many in the Northeast will still be cool.\nPrices tend to go up as spring break season ramps, so booking sooner helps. (Investopedia)"
   },
   {
     "objectID": "posts/004_travel_planner/travel_planner.html#destination-ideas-good-fairly-affordable-options-from-philadelphia",
     "href": "posts/004_travel_planner/travel_planner.html#destination-ideas-good-fairly-affordable-options-from-philadelphia",
-    "title": "🌴 Puerto Rico",
+    "title": "Travel Planner: ChatGPT",
     "section": "Destination Ideas (Good / Fairly Affordable Options from Philadelphia)",
     "text": "Destination Ideas (Good / Fairly Affordable Options from Philadelphia)\nHere are a mix of domestic + international spots. I’ve picked ones that tend to give good value, with decent weather in March, and manageable flights or drive.\n\n\n\nDestination\nWhat’s Good There\nThings to Watch / Cost Considerations\n\n\n\n\nFlorida (e.g. Orlando, Miami, Keys)\nWarm weather, lots of variety (beaches, nightlife, theme parks, nature). Florida often has good flight deals from Philly.\nMiami / the Keys can get pricier, especially hotels. Orlando has peak demand, so lodging can rise. Aim for mid‐week flights.\n\n\nPuerto Rico\nNo passport needed for U.S. citizens, tropical, beaches + culture + easy travel. Great weather in March. (Holland America Line)\nSome areas can be touristy / more expensive. If you go “off the beaten path” you’ll save.\n\n\nDominican Republic / Jamaica / Bahamas\nClassic beach vibes, warm temps, good resorts. March is good season. (expedia)\nResorts can vary hugely in price. All‐inclusive may seem pricier upfront but often gives better value. Flight timing matters.\n\n\nCuraçao / Aruba / Southern Caribbean\nVery nice weather, often lower rainfall, more off‐mainstream (so slightly cheaper and less crowded) than say, Cancun or Punta Cana. (Caribeez)\nLonger flights (so maybe higher airfare). Amenities may cost more depending on island.\n\n\nDomestic U.S. – Southern Cities (New Orleans, Charleston, Savannah)\nMore culture/history, good food, often cheaper lodging. Warm to mild weather by early‐mid March. Less travel hassle.\nNot beach warm everywhere; for full beach weather you might need Florida or coasts. Some tourist spots will bump up prices.\n\n\nDomestic U.S. – Cheap beach‐adjacent states (SC, GA, Florida Panhandle)\nLower cost than big destinations, beautiful scenery, more relaxed.\nWater may still be cool in some places; fewer direct flights so travel time matters."
   },
   {
     "objectID": "posts/004_travel_planner/travel_planner.html#my-top-picks-given-your-dates-leaving-from-philly",
     "href": "posts/004_travel_planner/travel_planner.html#my-top-picks-given-your-dates-leaving-from-philly",
-    "title": "🌴 Puerto Rico",
+    "title": "Travel Planner: ChatGPT",
     "section": "My Top Picks Given Your Dates + Leaving from Philly",
     "text": "My Top Picks Given Your Dates + Leaving from Philly\nIf I were you, considering cost + fun + weather, I’d seriously look at:\n\nPuerto Rico — good mix of culture, beaches, pretty easy travel, no passport hassle.\nFlorida (especially somewhere like Key West or the Florida Keys, or maybe a mix Orlando + coast) — you can get warm, sun, fun.\nDominican Republic — maybe Punta Cana or another beach resort, if you find good deals.\nSouthern U.S. cities + a beach combo — e.g. fly into Charleston or Savannah, maybe rent a car and head to a nearby beach; balances cost + relaxation.\n\n\nIf you tell me your approximate budget (for flights + lodging) and what kind of trip you prefer (relax, adventure, culture, lots of partying, family oriented etc.), I can pull up 3-4 specific itinerary suggestions + cost estimates for your March 7-15 break. Do you want me to do that?\n\nPrompt:\ncan you tell me pros and cons of these places\n\n\nResponse:\nCool, here are some pros and cons of Puerto Rico, Florida (especially the Keys + more general “beaches + fun”), and the Dominican Republic. This should help you evaluate them. If you want I can do cost estimates or compare a few specific spots in each."
   },
   {
     "objectID": "posts/004_travel_planner/travel_planner.html#puerto-rico",
     "href": "posts/004_travel_planner/travel_planner.html#puerto-rico",
-    "title": "🌴 Puerto Rico",
+    "title": "Travel Planner: ChatGPT",
     "section": "Puerto Rico",
     "text": "Puerto Rico\nPros:\n\nNo passport needed (for U.S. citizens) — it’s a U.S. territory, so you avoid extra travel paperwork hassles. (AAA)\nSame currency, familiar cell phone/service laws/etc. — using USD, similar infrastructure in many parts. (AAA)\nVariety of things to do — beaches, rainforest (El Yunque), bioluminescent bays, historic Old San Juan, good food culture. (Lonely Planet)\nRich culture + bilingual. Spanish + English spoken, so you get that Caribbean flavor but don’t feel totally foreign. (TravelAwaits)\nTravel convenience from the U.S. — relatively short flights, fewer visa/passport or customs complications compared to international destinations. (AAA)\n\nCons:\n\nInfrastructure issues — power outages, etc., can happen. Some parts of the roads or rural areas may be less developed. (Reddit)\nPotential for crowds + cost in popular areas — Old San Juan, big beaches or resorts tend to get busy and more expensive.\nWeather risks — though March is outside hurricane season, tropical weather can be unpredictable; occasional storms, rains, or rough seas.\nSome parts are more remote — if you want quieter, cheaper spots, travel time & cost (car rentals etc.) can add up, especially going beyond the main hubs."
   },
   {
     "objectID": "posts/004_travel_planner/travel_planner.html#florida-keys-general-florida-beach-areas",
     "href": "posts/004_travel_planner/travel_planner.html#florida-keys-general-florida-beach-areas",
-    "title": "🌴 Puerto Rico",
+    "title": "Travel Planner: ChatGPT",
     "section": "Florida (Keys / General Florida Beach Areas)",
     "text": "Florida (Keys / General Florida Beach Areas)\nPros:\n\nGood weather in March — Florida typically has warm (not sweltering) conditions in southern parts; more mild, dry, compared to summer. (Florida Trippers)\nLots of variety — beaches, nightlife, natural springs, state parks, water activities, diving/snorkeling, etc. (Big Daddy Kreativ)\nRelatively easier logistics/infrastructure — flights, vaccines/health, phone service, etc., are well developed; more options for lodging.\nPotential for cheaper options if you avoid very touristy spots — some beach towns inland or in less famous areas can be more affordable.\n\nCons:\n\nCrowds and higher prices during spring break — March is already popular, so lodging + flights can spike especially in beachy / party-town areas. (Roundtript)\nWater may still be a bit cooler in some places — depending how far north in Florida or how shallow/coastal, the ocean might not be super warm yet.\nSome areas are more “touristy” / can feel less unique — if your goal is culture & “something special,” Florida has more of a mass-tourism feel in many areas.\nTravel time / cost adds up if going far south or out Keys — flights might be okay, but getting around or staying in Keys, etc., might get pricier."
   },
   {
     "objectID": "posts/004_travel_planner/travel_planner.html#dominican-republic",
     "href": "posts/004_travel_planner/travel_planner.html#dominican-republic",
-    "title": "🌴 Puerto Rico",
+    "title": "Travel Planner: ChatGPT",
     "section": "Dominican Republic",
     "text": "Dominican Republic\nPros:\n\nBeautiful beaches + resort amenities — places like Punta Cana have great beaches, clear water, good options for relaxing and doing water-sports. (Budget Your Trip)\nGenerally affordable — many all-inclusive resorts, food & local travel can be cheaper than comparable Caribbean islands or U.S. luxury areas. (Budget Your Trip)\nWarm weather, lots of sunshine around that time — good for a beach getaway.\nFriendly locals / vibrant culture — music, food, relaxed pace, often welcoming to tourists. (World Travel Guide)\n\nCons:\n\nSafety concerns in some areas — crime (petty theft, etc.) is something to be aware of. Tourist zones tend to be safer, but venturing out requires caution. (Berkshire Hathaway Travel Protection)\nResort-vs-local trade-offs — if you stay in an all-inclusive resort, you may have fewer “authentic” interactions; leaving resort can cost more or require more effort (transportation, language, etc.).\nQuality / consistency — sometimes standards in smaller or more remote places might be less predictable (lodging, service, food hygiene).\nTravel time + entry costs — flights might be longer / more expensive than to Puerto Rico or Florida; also extra things like visas, currency conversion, etc., depending on where you stay.\nTouristy feel in popular spots — in the most famous beach resort areas, there can be heavy tourism, limited quiet, etc.\n\n\nIf you want, I can line up three specific destinations (one in each of these categories) with their pros & cons + estimated costs from Philadelphia for your dates — might help you decide. Do you want me to pull those together?\n\nPrompt:\nwhich one place do you recommend the most?\n\n\nResponse\nIf I had to pick one for you — based on your dates (March 7–15), leaving from Philadelphia, and wanting fun but not too expensive — I’d recommend:"
   },
