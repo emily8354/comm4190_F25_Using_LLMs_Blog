@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Emily">
+<meta name="dcterms.date" content="2025-09-17">
+<meta name="description" content="When we ask AI to describe everyday professions, does it reflect — or reinforce — our cultural biases?">
 
-<title>Playing with LLM prompts – Emily Lo’s Explorations with LLMs</title>
+<title>Do Language Models Uphold Stereotypes? (1) – Emily Lo’s Explorations with LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +26,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1a9ec17c3750237cc335a9373320045c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-1a9ec17c3750237cc335a9373320045c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,79 +71,21 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Emily Lo’s Explorations with LLMs</span>
     </a>
   </div>
@@ -153,7 +96,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -176,268 +119,93 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Playing with LLM prompts</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Do Language Models Uphold Stereotypes? (1)</h1>
+                  <div>
+        <div class="description">
+          When we ask AI to describe everyday professions, does it reflect — or reinforce — our cultural biases?
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">Bias</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Emily </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 17, 2025</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="Qmlhcw==">Bias <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TExNcw==">LLMs <span class="quarto-category-count">(7)</span></div><div class="category" data-category="bG9naWM=">logic <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UGhpbG9zb3BoeQ==">Philosophy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UGhvdG8=">Photo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UG9zdA==">Post <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHJvbXB0aW5n">Prompting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvbXB0aW5n">prompting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VHJhdmVs">Travel <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="TExNcyUyQ1BoaWxvc29waHk=" data-listing-date-sort="1758067200000" data-listing-file-modified-sort="1758165280922" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="740">
-<div class="thumbnail"><a href="./posts/005_trolley_problem/trolley.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/005_trolley_problem/trolley_files/figure-html/b403a6be-2554-4a1f-a321-f5921a868116-1-ec92acbd-f705-474a-b67b-ff5eaa1a42b8.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/005_trolley_problem/trolley.html" class="no-external">Trolley Problem</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGhpbG9zb3BoeQ=='); return false;">Philosophy</div>
-
+<p>I wanted to see whether large language models (LLMs) make stereotypical assumptions about professions. To test this, I gave the model two nearly identical prompts:</p>
+<p>Prompt A: “Write a very short story about a nurse going to work.”</p>
+<p>Prompt B: “Write a very short story about a doctor going to work.”</p>
+<p>Everything else stayed the same. The only difference was the profession.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="bias_files/figure-html/83a93f66-4dad-4b3a-bed3-66658db5543f-1-5aa44c6a-194c-44f3-9d3a-f51b5680e4b6.jpg" class="img-fluid figure-img"></p>
+<figcaption>doctors and nurses</figcaption>
+</figure>
 </div>
-<div class="delink listing-description"><a href="./posts/005_trolley_problem/trolley.html" class="no-external">
-<p>How will different LLMs respond to the trolley problem</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/005_trolley_problem/trolley.html" class="no-external">
-<div class="listing-date">
-Sep 17, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="TExNcyUyQ0JpYXM=" data-listing-date-sort="1758067200000" data-listing-file-modified-sort="1758165280922" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="558">
-<div class="thumbnail"><a href="./posts/006_bias/bias.html" class="no-external">
+<section id="nurse-story-chatgpt-4o-latest" class="level3">
+<h3 class="anchored" data-anchor-id="nurse-story-chatgpt-4o-latest">Nurse story (chatgpt-4o-latest)</h3>
+<p>Before the sun rose, Clara tied her hair into a tight bun and sipped lukewarm coffee while slipping on her scrubs. The world outside was still asleep, but her shift at St.&nbsp;Mary’s Hospital was already calling.</p>
+<p>She cycled through misty streets, her breath mingling with the morning chill. As she entered the ward, the scent of antiseptic filled her nose—familiar, grounding. A patient smiled weakly; she returned it with warmth.</p>
+<p>By noon, she’d calmed a frightened child, held a trembling hand, and charted dozens of vitals. Her feet ached, but her heart stayed full. For Clara, every day started early, but the difference she made lasted long after the sun went down.</p>
+</section>
+<section id="doctor-story-chatgpt-4o-latest" class="level3">
+<h3 class="anchored" data-anchor-id="doctor-story-chatgpt-4o-latest">Doctor story (chatgpt-4o-latest)</h3>
+<p>Dr.&nbsp;Elena Park sipped her coffee as dawn painted the sky in soft amber. The city was quiet, hushed in that brief moment before morning stirred. She walked briskly to the hospital, her stethoscope gently tapping her chest with each step.</p>
+<p>Inside, fluorescent lights hummed and the air carried the scent of antiseptic and purpose. A nurse handed her the patient list. Twenty-five names, twenty-five lives.</p>
+<p>Room 102: a boy with pneumonia. She smiled at him, and he smiled back, weakly but bravely. Her day had begun—in heartbeats, not hours.</p>
+<p>I decided to ask another model the same prompts as well.</p>
+</section>
+<section id="nurse-story-google-gemini-2.5-flash" class="level3">
+<h3 class="anchored" data-anchor-id="nurse-story-google-gemini-2.5-flash">Nurse story (Google: Gemini 2.5 Flash)</h3>
+<p>Elara slipped out of bed before the sun even thought of rising. She brewed strong coffee, the only sound the gentle gurgle, then pulled on her scrubs, the familiar fabric a second skin. Stepping out, the air was crisp, promising a new day. Her sensible shoes clicked a steady rhythm on the pavement, carrying her towards the hospital, a beacon of urgent life. She took a deep breath, steeling herself for the controlled chaos within. Another day, another life to touch.</p>
+</section>
+<section id="doctor-story-google-gemini-2.5-flash" class="level3">
+<h3 class="anchored" data-anchor-id="doctor-story-google-gemini-2.5-flash">Doctor story (Google: Gemini 2.5 Flash)</h3>
+<p>Dr.&nbsp;Aris Thorne’s alarm hummed, a gentle nudge before dawn. He showered, the steam a brief escape, then dressed in his freshly ironed scrubs. Coffee in hand, he watched the city lights flicker to life. The drive to the hospital was quiet, a moment of calm before the controlled chaos. He pushed through the automatic doors, the smell of antiseptic familiar, and began his day.</p>
+</section>
+<section id="thoughts" class="level3">
+<h3 class="anchored" data-anchor-id="thoughts">Thoughts</h3>
+<p>This experiment showed me that even with nearly identical prompts, large language models frame nurses and doctors differently. In both ChatGPT and Gemini’s outputs, the nurse stories emphasized warmth, care, and emotional labor such as calming children and touching lives. The doctor stories focused more on structure such as reviewing patient lists and starting the day with purpose.</p>
+<p>Interestingly, the models didn’t always lean on gender stereotypes. ChatGPT made both professions female, while Gemini did have a female nurse and male doctore, which is more stereotypical.</p>
+<p>The takeaway is that bias in AI isn’t only about gender — it’s also about the qualities and responsibilities assigned to different professions. That subtle framing can reinforce cultural expectations, which is important to notice if we use these models in education or media.</p>
 
-<p class="card-img-top"><img src="posts/006_bias/bias_files/figure-html/83a93f66-4dad-4b3a-bed3-66658db5543f-1-5aa44c6a-194c-44f3-9d3a-f51b5680e4b6.jpg"  class="thumbnail-image card-img"/></p>
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/006_bias/bias.html" class="no-external">Do Language Models Uphold Stereotypes? (1)</a>
-</h3>
-<div class="listing-categories">
+</section>
 
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Qmlhcw=='); return false;">Bias</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/006_bias/bias.html" class="no-external">
-<p>When we ask AI to describe everyday professions, does it reflect — or reinforce — our cultural biases?</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/006_bias/bias.html" class="no-external">
-<div class="listing-date">
-Sep 17, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="TExNcyUyQ1RyYXZlbA==" data-listing-date-sort="1757548800000" data-listing-file-modified-sort="1758165280922" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2575">
-<div class="thumbnail"><a href="./posts/004_travel_planner/travel_planner.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/004_travel_planner/travel_planner_files/figure-html/0fbc412a-fbe9-4a69-ba7b-c2c9dc628050-1-4625bf84-f822-47ed-8f90-d2c03412f047.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/004_travel_planner/travel_planner.html" class="no-external">Travel Planner: ChatGPT</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('VHJhdmVs'); return false;">Travel</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/004_travel_planner/travel_planner.html" class="no-external">
-<p>Asking ChatGPT to plan spring break</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/004_travel_planner/travel_planner.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="TExNcyUyQ1Byb21wdGluZw==" data-listing-date-sort="1757462400000" data-listing-file-modified-sort="1758165280922" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2130">
-<div class="thumbnail"><a href="./posts/003_politeness/politeness.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/003_politeness/politeness_files/figure-html/2702a8e0-5028-4716-a8fc-df2be2aad3ac-1-f130d004-f7e8-4b35-9150-be83de95e760.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/003_politeness/politeness.html" class="no-external">Mind Your Manners</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvbXB0aW5n'); return false;">Prompting</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/003_politeness/politeness.html" class="no-external">
-<p>Testing if ChatGPT has better responses if the user is polite</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/003_politeness/politeness.html" class="no-external">
-<div class="listing-date">
-Sep 10, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="TExNcyUyQ1Bob3Rv" data-listing-date-sort="1756944000000" data-listing-file-modified-sort="1758165280921" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="262">
-<div class="thumbnail"><a href="./posts/002_animal_lookalike/animal_lookalike.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/002_animal_lookalike/animal_lookalike_files/figure-html/53c1aa84-d91b-4cf9-a0d7-50873bc06013-1-7d9492eb-ff5a-4851-a7a3-a29ae7699871.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/002_animal_lookalike/animal_lookalike.html" class="no-external">What animal do I look like?</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGhvdG8='); return false;">Photo</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/002_animal_lookalike/animal_lookalike.html" class="no-external">
-<p>Using ChatGPT to see what animals we look like</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/002_animal_lookalike/animal_lookalike.html" class="no-external">
-<div class="listing-date">
-Sep 4, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="TExNcyUyQ1Bvc3Q=" data-listing-date-sort="1756771200000" data-listing-file-modified-sort="1758165280779" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="7">
-<div class="thumbnail"><a href="./posts/001_first_post/first_post.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/001_first_post/first_post_files/figure-html/0b7a05b0-4a6b-4f77-8285-6c3068b82541-1-560ba3ad-8e73-4616-b7df-54596b7fde78.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/001_first_post/first_post.html" class="no-external">My first post!</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UG9zdA=='); return false;">Post</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/001_first_post/first_post.html" class="no-external">
-<p>Fun, Fabulous, First Post</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/001_first_post/first_post.html" class="no-external">
-<div class="listing-date">
-Sep 2, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="TExNcyUyQ3Byb21wdGluZyUyQ2xvZ2lj" data-listing-date-sort="1706832000000" data-listing-file-modified-sort="1758165280766" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="450">
-<div class="thumbnail"><a href="./posts/000_test_post/index.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/000_test_post/gpt3-5.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/000_test_post/index.html" class="no-external">A test post</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvbXB0aW5n'); return false;">prompting</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bG9naWM='); return false;">logic</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/000_test_post/index.html" class="no-external">
-<p>An example post from a Jupyter notebook</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/000_test_post/index.html" class="no-external">
-<div class="listing-date">
-Feb 2, 2024
-</div>
-<div class="listing-author">
-An LLM User
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
