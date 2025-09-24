@@ -1,8 +1,8 @@
 ---
 title: About
-image: profile.jpg
+image: IMG_5460.jpg
 about:
   template: jolla
 ---
 
-This blog is about my exploration and experimentation with LLMs.
+Hi I'm Emily, a senior at Penn studying CS! This is my blog about experimenting with AI :)
