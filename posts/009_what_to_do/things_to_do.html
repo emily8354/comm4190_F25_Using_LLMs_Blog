@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Emily">
+<meta name="dcterms.date" content="2025-09-25">
+<meta name="description" content="Asking different LLMs for ideas on things to do around Philly">
 
-<title>Playing with LLM prompts – Emily Lo’s Explorations with LLMs</title>
+<title>What to do around Philly – Emily Lo’s Explorations with LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +26,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-81161df70946103be4ff68a34233701c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-81161df70946103be4ff68a34233701c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,79 +71,21 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Emily Lo’s Explorations with LLMs</span>
     </a>
   </div>
@@ -153,7 +96,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -171,298 +114,131 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Playing with LLM prompts</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">What to do around Philly</h1>
+                  <div>
+        <div class="description">
+          Asking different LLMs for ideas on things to do around Philly
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">Ideas</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Emily </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 25, 2025</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="Qmlhcw==">Bias <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SWRlYXM=">Ideas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TExNcw==">LLMs <span class="quarto-category-count">(8)</span></div><div class="category" data-category="UGhpbG9zb3BoeQ==">Philosophy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UGhvdG8=">Photo <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UHJvbXB0aW5n">Prompting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VHJhdmVs">Travel <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<section id="intro" class="level3">
+<h3 class="anchored" data-anchor-id="intro">Intro:</h3>
+<p>As a senior with a good amount of free time this semester, I want to explore Philly and make the most out of my time here! I don’t really know many activities to do in Philly besides walk into Center City or along the Schuylkill River. So, I decided to ask ChatGPT-4o-latest, Google Gemini 2.5 Flash, and Anthropic/Claude-3.5-sonnet for ideas on what to do in Philly next weekend!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="things_to_do_files/figure-html/d1d75720-b8f7-40b2-bd1c-c266231490c5-1-fbb65838-9b95-4768-8bdb-a2a3728d0fc7.jpg" class="img-fluid figure-img"></p>
+<figcaption>Philly!</figcaption>
+</figure>
+</div>
+</section>
+<section id="prompt" class="level3">
+<h3 class="anchored" data-anchor-id="prompt">Prompt:</h3>
+<p>What should I do next week in Philadelphia? I am college student located in University City. I would prefer activities that are free or low cost. Please list out 5 ideas in the following format:<br>
+Idea<br>
+Cost:<br>
+Description:</p>
+</section>
+<section id="chatgpts-response" class="level3">
+<h3 class="anchored" data-anchor-id="chatgpts-response">ChatGPT’s Response:</h3>
+<p>Sure! Here are 5 free or low-cost things you can do next week in Philadelphia as a college student in University City:</p>
+<ol type="1">
+<li><p>Explore the Schuylkill River Trail<br>
+Cost: Free<br>
+Description: Take a walk, jog, or bike ride along the scenic Schuylkill River Trail. It’s easily accessible from University City and offers beautiful views of the skyline. A great way to enjoy nature while staying close to campus.</p></li>
+<li><p>Visit the Institute of Contemporary Art (ICA)<br>
+Cost: Free<br>
+Description: Located right on Penn’s campus, the ICA features rotating exhibitions of cutting-edge modern art. Admission is always free, and it’s a great spot to engage with new ideas and artists.</p></li>
+<li><p>Attend Shakespeare in Clark Park (check for dates)<br>
+Cost: Free<br>
+Description: If there’s a performance happening next week, grab a blanket and enjoy a free outdoor play in Clark Park, just a short walk from University City. The productions are engaging and community-driven.</p></li>
+<li><p>Check out First Friday in Old City (if it falls next week)<br>
+Cost: Free<br>
+Description: On the first Friday evening of every month, art galleries and shops in Old City open their doors late with free exhibits, live music, and entertainment. Hop on the Market-Frankford Line for an easy ride from University City.</p></li>
+<li><p>Explore Reading Terminal Market<br>
+Cost: Free to enter (food optional)<br>
+Description: Even if you don’t buy anything, wandering through Reading Terminal Market is a sensory experience. Sample free food samples, people-watch, and enjoy the historic vibe. If you want a bite, you can find affordable eats!</p></li>
+</ol>
+<p>Let me know if you’d like more ideas for specific days or interests!</p>
+</section>
+<section id="geminis-response" class="level3">
+<h3 class="anchored" data-anchor-id="geminis-response">Gemini’s Response:</h3>
+<p>Here are 5 ideas for you to do next week in Philadelphia, keeping your location, budget, and student status in mind:</p>
+<ol type="1">
+<li><p><strong>Visit the Institute of Contemporary Art (ICA) at Penn</strong><br>
+cost: Free<br>
+description: Located right on Penn’s campus, the ICA always features cutting-edge contemporary art exhibitions. It’s a great way to spend an hour or two stimulating your mind with thought-provoking art, and it’s completely free to enter. Check their website for current exhibits.</p></li>
+<li><p><strong>Explore Reading Terminal Market</strong><br>
+cost: Free to browse, low cost if you decide to buy food/drinks<br>
+description: A historic indoor market bursting with energy, food stalls, and vendors. Even if you don’t buy anything, it’s a fantastic place to walk around, people-watch, and soak in the vibrant atmosphere. You can find relatively inexpensive snacks or meals if you get hungry. It’s a short ride on SEPTA or a manageable walk from University City.</p></li>
+<li><p><strong>Walk or Bike the Schuylkill Banks Trail</strong><br>
+cost: Free (if you walk or own a bike)<br>
+description: Easily accessible from University City, this scenic trail runs along the Schuylkill River, offering beautiful views of the city skyline and the river. It’s perfect for a walk, jog, or bike ride, allowing you to enjoy the outdoors and get some exercise without spending a dime.</p></li>
+<li><p><strong>Visit the Rodin Museum (Pay-What-You-Wish)</strong><br>
+cost: Pay-What-You-Wish (suggested $12, but you can pay as little as $1 or even $0)<br>
+description: Home to one of the largest collections of Auguste Rodin’s sculptures outside of Paris, including “The Thinker” and “The Gates of Hell.” The museum building and its surrounding gardens are beautiful and offer a peaceful, culturally enriching experience. It’s a short public transit ride or a pleasant walk from University City.</p></li>
+<li><p><strong>Relax at Penn Park or Drexel Park for Skyline Views</strong><br>
+cost: Free<br>
+description: Both Penn Park (located behind Franklin Field on Penn’s campus) and Drexel Park (at 32nd and Powelton Ave) offer fantastic, unobstructed views of the Philadelphia skyline. They are great spots to relax, read a book, have a picnic (pack your own snacks!), or simply enjoy the scenery, especially around sunset. Both are right in your neighborhood.</p></li>
+</ol>
+</section>
+<section id="claudes-response" class="level3">
+<h3 class="anchored" data-anchor-id="claudes-response">Claude’s Response:</h3>
+<p>Here are 5 ideas for next week in Philadelphia, focusing on free or low-cost activities accessible from University City:</p>
+<p><strong>1. Visit the Institute of Contemporary Art (ICA) at Penn</strong> * <strong>Cost:</strong> Free * <strong>Description:</strong> Located right on the University of Pennsylvania campus, the ICA features cutting-edge contemporary art exhibitions that are always thought-provoking. It’s a fantastic way to experience modern art without spending a dime, and it’s incredibly convenient for a University City student. Check their website for current exhibitions.</p>
+<p><strong>2. Explore the Schuylkill River Trail &amp; Schuylkill Banks</strong> * <strong>Cost:</strong> Free * <strong>Description:</strong> This scenic urban trail runs along the Schuylkill River, offering beautiful views of the city skyline and plenty of green space. You can walk, jog, or bike. Start from the University City side (e.g., near the South Street Bridge or Cira Centre) and head north towards Fairmount Park or south along the Banks for a relaxing and active outdoor escape.</p>
+<p><strong>3. Pay-What-You-Wish at the Rodin Museum</strong> * <strong>Cost:</strong> Pay-what-you-wish (suggested donation is $12, but you can pay any amount, or nothing at all) * <strong>Description:</strong> Home to one of the largest collections of Auguste Rodin’s work outside of Paris, including iconic pieces like “The Thinker” and “The Gates of Hell.” The museum and its beautiful gardens offer a serene and profound artistic experience. It’s a short walk or quick bus ride from University City, making it an accessible cultural outing.</p>
+<p><strong>4. Wander through Reading Terminal Market</strong> * <strong>Cost:</strong> Free to enter and browse; low cost if you choose to buy food or snacks * <strong>Description:</strong> One of America’s oldest and largest public markets, Reading Terminal is a vibrant hub of food vendors, bakeries, produce stands, and specialty shops. Even if you’re not buying anything, it’s a fantastic place to soak in the bustling atmosphere, people-watch, and enjoy the incredible sights and smells. You can grab a cheap snack or meal if you want. Easily accessible via SEPTA from University City.</p>
+<p><strong>5. Discover Old City &amp; Independence National Historical Park</strong> * <strong>Cost:</strong> Free (some attractions like Independence Hall require timed tickets which are free but often booked in advance, but you can see many things from the outside) * <strong>Description:</strong> Take a walk through America’s most historic square mile. You can see the Liberty Bell (from outside or wait in line for free entry), walk past Independence Hall, explore Elfreth’s Alley (the oldest continuously inhabited residential street in the US), and wander the charming cobblestone streets of Old City, soaking in the colonial architecture and history. It’s a bit further from University City but easily reachable by SEPTA.</p>
+</section>
+<section id="thoughts" class="level3">
+<h3 class="anchored" data-anchor-id="thoughts">Thoughts:</h3>
+<p>Overall, I really like ChatGPT’s response and thought that it had some interesting events that I had not heard of before like Shakespeare in Clark Park and First Friday in Old City. First Friday is also next Friday so I think I will actually check it out! However, ChatGPT’s format was not as good as the other responses ex. harder to read with no bolding.</p>
+<p>Gemini and Claude both had almost the same response. I think the format of both of these responses is better with the bolding, but otherwise these suggestions are all places that are common and well known.</p>
+<p>I find it interesting that Gemini and Claude had extremely similar responses while ChatGPT’s was different. Perhaps the ChatGPT model is more different than the Gemini and Claude ones?</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="TExNcyUyQ0lkZWFz" data-listing-date-sort="1758758400000" data-listing-file-modified-sort="1758832754859" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1365">
-<div class="thumbnail"><a href="./posts/009_what_to_do/things_to_do.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/009_what_to_do/things_to_do_files/figure-html/d1d75720-b8f7-40b2-bd1c-c266231490c5-1-fbb65838-9b95-4768-8bdb-a2a3728d0fc7.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/009_what_to_do/things_to_do.html" class="no-external">What to do around Philly</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SWRlYXM='); return false;">Ideas</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/009_what_to_do/things_to_do.html" class="no-external">
-<p>Asking different LLMs for ideas on things to do around Philly</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/009_what_to_do/things_to_do.html" class="no-external">
-<div class="listing-date">
-Sep 25, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="TExNcyUyQ1Bob3Rv" data-listing-date-sort="1758758400000" data-listing-file-modified-sort="1758832754856" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="564">
-<div class="thumbnail"><a href="./posts/008_headshot2/headshot2.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/008_headshot2/headshot2_files/figure-html/afd2173b-7bb3-45c1-ba3a-0b80bb5c7ea0-1-48aeb79c-f2c5-45ef-99be-665fd9629a49.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/008_headshot2/headshot2.html" class="no-external">New Professional Headshot! Part 2</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGhvdG8='); return false;">Photo</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/008_headshot2/headshot2.html" class="no-external">
-<p>Asking Google Gemini to make a professional headshot for me</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/008_headshot2/headshot2.html" class="no-external">
-<div class="listing-date">
-Sep 25, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="TExNcyUyQ1Bob3Rv" data-listing-date-sort="1758067200000" data-listing-file-modified-sort="1758832754734" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="176">
-<div class="thumbnail"><a href="./posts/007_headshot/headshot.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/007_headshot/headshot_files/figure-html/0ea141b4-2e32-4f8d-aeb3-3ca6852888b5-1-397e9854-ec86-492b-9447-f7a0b77483a7.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/007_headshot/headshot.html" class="no-external">New Professional Headshot!</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGhvdG8='); return false;">Photo</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/007_headshot/headshot.html" class="no-external">
-<p>Asking ChatGPT to make a professional headshot for me</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/007_headshot/headshot.html" class="no-external">
-<div class="listing-date">
-Sep 17, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="TExNcyUyQ0JpYXM=" data-listing-date-sort="1758067200000" data-listing-file-modified-sort="1758832754618" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="558">
-<div class="thumbnail"><a href="./posts/006_bias/bias.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/006_bias/bias_files/figure-html/83a93f66-4dad-4b3a-bed3-66658db5543f-1-5aa44c6a-194c-44f3-9d3a-f51b5680e4b6.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/006_bias/bias.html" class="no-external">Do Language Models Uphold Stereotypes?</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Qmlhcw=='); return false;">Bias</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/006_bias/bias.html" class="no-external">
-<p>When we ask AI to describe everyday professions, does it reflect — or reinforce — our cultural biases?</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/006_bias/bias.html" class="no-external">
-<div class="listing-date">
-Sep 17, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="TExNcyUyQ1BoaWxvc29waHk=" data-listing-date-sort="1758067200000" data-listing-file-modified-sort="1758832754618" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="740">
-<div class="thumbnail"><a href="./posts/005_trolley_problem/trolley.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/005_trolley_problem/trolley_files/figure-html/b403a6be-2554-4a1f-a321-f5921a868116-1-ec92acbd-f705-474a-b67b-ff5eaa1a42b8.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/005_trolley_problem/trolley.html" class="no-external">Trolley Problem</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGhpbG9zb3BoeQ=='); return false;">Philosophy</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/005_trolley_problem/trolley.html" class="no-external">
-<p>How will different LLMs respond to the trolley problem</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/005_trolley_problem/trolley.html" class="no-external">
-<div class="listing-date">
-Sep 17, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="TExNcyUyQ1RyYXZlbA==" data-listing-date-sort="1757548800000" data-listing-file-modified-sort="1758832754618" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2575">
-<div class="thumbnail"><a href="./posts/004_travel_planner/travel_planner.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/004_travel_planner/travel_planner_files/figure-html/0fbc412a-fbe9-4a69-ba7b-c2c9dc628050-1-4625bf84-f822-47ed-8f90-d2c03412f047.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/004_travel_planner/travel_planner.html" class="no-external">Travel Planner: ChatGPT</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('VHJhdmVs'); return false;">Travel</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/004_travel_planner/travel_planner.html" class="no-external">
-<p>Asking ChatGPT to plan spring break</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/004_travel_planner/travel_planner.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="TExNcyUyQ1Byb21wdGluZw==" data-listing-date-sort="1757462400000" data-listing-file-modified-sort="1758832754617" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2130">
-<div class="thumbnail"><a href="./posts/003_politeness/politeness.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/003_politeness/politeness_files/figure-html/2702a8e0-5028-4716-a8fc-df2be2aad3ac-1-f130d004-f7e8-4b35-9150-be83de95e760.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/003_politeness/politeness.html" class="no-external">Mind Your Manners</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvbXB0aW5n'); return false;">Prompting</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/003_politeness/politeness.html" class="no-external">
-<p>Testing if ChatGPT has better responses if the user is polite</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/003_politeness/politeness.html" class="no-external">
-<div class="listing-date">
-Sep 10, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="TExNcyUyQ1Bob3Rv" data-listing-date-sort="1756944000000" data-listing-file-modified-sort="1758832754616" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="262">
-<div class="thumbnail"><a href="./posts/002_animal_lookalike/animal_lookalike.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/002_animal_lookalike/animal_lookalike_files/figure-html/53c1aa84-d91b-4cf9-a0d7-50873bc06013-1-7d9492eb-ff5a-4851-a7a3-a29ae7699871.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/002_animal_lookalike/animal_lookalike.html" class="no-external">What animal do I look like?</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGhvdG8='); return false;">Photo</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/002_animal_lookalike/animal_lookalike.html" class="no-external">
-<p>Using ChatGPT to see what animals we look like</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/002_animal_lookalike/animal_lookalike.html" class="no-external">
-<div class="listing-date">
-Sep 4, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
