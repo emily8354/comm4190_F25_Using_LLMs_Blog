@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Emily">
+<meta name="dcterms.date" content="2025-09-25">
+<meta name="description" content="Asking ChatGPT to explain recent slang terms">
 
-<title>Playing with LLM prompts – Emily Lo’s Explorations with LLMs</title>
+<title>Does ChatGPT know slang? – Emily Lo’s Explorations with LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +26,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-81161df70946103be4ff68a34233701c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-81161df70946103be4ff68a34233701c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,79 +71,21 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Emily Lo’s Explorations with LLMs</span>
     </a>
   </div>
@@ -153,7 +96,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -171,330 +114,169 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Playing with LLM prompts</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Does ChatGPT know slang?</h1>
+                  <div>
+        <div class="description">
+          Asking ChatGPT to explain recent slang terms
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">Slang</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Emily </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 25, 2025</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(9)</span></div><div class="category" data-category="Qmlhcw==">Bias <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SWRlYXM=">Ideas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TExNcw==">LLMs <span class="quarto-category-count">(9)</span></div><div class="category" data-category="UGhpbG9zb3BoeQ==">Philosophy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UGhvdG8=">Photo <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UHJvbXB0aW5n">Prompting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2xhbmc=">Slang <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VHJhdmVs">Travel <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<section id="intro" class="level3">
+<h3 class="anchored" data-anchor-id="intro">Intro:</h3>
+<p>During another one of my classes, we were reviewing past class final projects. One of the projects was for younger and older generations to learn the slang of each other. Thus, improving communication and understanding across generations. This project made me think: can ChatGPT explain these slang terms? I wanted to see whether ChatGPT-5 could explain some recent slang terms: 6 7, performative male, and aura farming. In my opinion, these are all pretty recent terms that have become popular. I saw that ChatGPT is able to use web search tools to get recent information, so let’s see if it knows these terms!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slang_files/figure-html/db017622-21cc-43f7-950e-dc1639f37acf-1-cbfc43fc-6860-4e37-a0bb-7eb45e92fa21.jpg" class="img-fluid figure-img"></p>
+<figcaption>performative male</figcaption>
+</figure>
+</div>
+</section>
+<section id="prompt" class="level3">
+<h3 class="anchored" data-anchor-id="prompt">Prompt:</h3>
+<p>what does 6 7 mean?</p>
+</section>
+<section id="response" class="level3">
+<h3 class="anchored" data-anchor-id="response">Response:</h3>
+<p>“6 7” is usually shorthand for the phrase <strong>“six, seven” → “ate (8)”</strong>.</p>
+<p>It’s a play on the old kids’ joke: 👉 <em>Why was 6 afraid of 7?</em> 👉 <em>Because 7 8 (ate) 9!</em></p>
+<p>So if someone just says “6 7” (especially in texts or online slang), they’re probably referencing that joke, hinting at the pun “7 ate 9.”</p>
+<p>It can also sometimes just be used jokingly as a meme-y way to say “watch out” or “be careful,” since it recalls the idea of 6 being scared of 7.</p>
+<p>Do you want me to also run through how people actually use “6 7” in modern slang (like on TikTok or in chats)?</p>
+</section>
+<section id="thoughts" class="level3">
+<h3 class="anchored" data-anchor-id="thoughts">Thoughts:</h3>
+<p>Hmm this is not the meaning of 6 7 that I know of…although I guess that 6 7 doesn’t have much of a meaning anyways. However, I know that people are definitely not referencing “7 ate 9” when they say 6 7. I asked ChatGPT-5 to give me the modern slang meaning of 6 7, but again it said</p>
+<p>“6 7” is modern shorthand for the “7 ate 9” joke, but now used as a quick meme-y way to say “watch out,” “I’m nervous,” or just to be goofy.</p>
+<p>Again, not the right way that people are using 6 7. Maybe this is too recent of a term to test ChatGPT on</p>
+</section>
+<section id="prompt-1" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-1">Prompt:</h3>
+<p>what does it mean if someone is a performative male and can you describe someone who is a performative male?</p>
+</section>
+<section id="response-1" class="level3">
+<h3 class="anchored" data-anchor-id="response-1">Response:</h3>
+<p>When someone is described as a <strong>“performative male”</strong>, it usually means that their masculinity or male identity is expressed in a way that feels more like a performance for others rather than something authentic or natural to them. It’s about <em>showing off being a man</em> rather than just <em>being</em> one.</p>
+</section>
+<section id="key-aspects-of-a-performative-male" class="level3">
+<h3 class="anchored" data-anchor-id="key-aspects-of-a-performative-male">Key Aspects of a Performative Male</h3>
+<ul>
+<li><strong>Overemphasis on Masculinity</strong>: He may exaggerate traits that are culturally coded as “manly” (strength, dominance, toughness, sexual conquest).</li>
+<li><strong>Audience-Driven Behavior</strong>: His actions often shift depending on who’s watching—he’s “performing” masculinity to gain approval, status, or validation.</li>
+<li><strong>Surface-Level Confidence</strong>: It can look like confidence, but it’s rooted in insecurity, since he feels the need to constantly prove himself.</li>
+<li><strong>Rigid Gender Roles</strong>: He might dismiss things seen as “feminine” and lean heavily into stereotypes (e.g., won’t show vulnerability, avoids admitting fear, scoffs at hobbies or traits not seen as masculine).</li>
+</ul>
+</section>
+<section id="example-of-a-performative-male" class="level3">
+<h3 class="anchored" data-anchor-id="example-of-a-performative-male">Example of a Performative Male</h3>
+<p>Imagine a guy at a party who loudly talks about how much he can bench press, makes jokes about women belonging in the kitchen, and brags about dating multiple women—all while checking to see if the group of men around him are laughing or impressed. He’s not doing these things because they reflect who he is, but because he thinks <em>that’s how a “real man” should act</em> in front of others.</p>
+<p>By contrast, someone who’s comfortable in their masculinity doesn’t need to constantly display or prove it; their sense of self isn’t dependent on performing for an audience.</p>
+<p>Would you like me to also explain how the term <em>performative</em> is used more broadly (outside gender/masculinity)? That might help frame it better.</p>
+</section>
+<section id="thoughts-1" class="level3">
+<h3 class="anchored" data-anchor-id="thoughts-1">Thoughts:</h3>
+<p>Since I was thinking of a matcha-holding, wired heaphones-listening man reading a book about feminism, I wanted to see if ChatGPT could describe a performative male more physically. However, this was its response:</p>
+</section>
+<section id="appearance-clothing" class="level3">
+<h3 class="anchored" data-anchor-id="appearance-clothing"><strong>Appearance &amp; Clothing</strong></h3>
+<ul>
+<li><strong>Gym wear as casual fashion</strong>: Tight athletic shirts, sleeveless tops, or joggers that show off muscles even outside the gym.</li>
+<li><strong>Designer labels &amp; flashy accessories</strong>: Branded sneakers, big watches, chains, or sunglasses indoors.</li>
+<li><strong>Overly styled grooming</strong>: Perfectly gelled hair or meticulously trimmed beard to give off a curated “alpha male” vibe.</li>
+<li><strong>“Hyper-masculine” looks</strong>: Leather jackets, ripped jeans, or outfits meant to project toughness and status.</li>
+</ul>
+<hr>
+</section>
+<section id="activities-interests" class="level3">
+<h3 class="anchored" data-anchor-id="activities-interests"><strong>Activities &amp; Interests</strong></h3>
+<ul>
+<li><strong>Gym &amp; fitness culture</strong>: Not just working out, but constantly talking about lifting, protein shakes, or “the grind.”</li>
+<li><strong>Car or tech flexing</strong>: Showing off cars, motorcycles, watches, or gadgets as proof of success.</li>
+<li><strong>Party &amp; nightlife</strong>: Prefers clubs, bottle service, VIP sections — places where being seen is as important as having fun.</li>
+<li><strong>Competitive hobbies</strong>: Sports betting, fantasy football, or anything where “winning” can be showcased.</li>
+<li><strong>Performative social media</strong>: Gym selfies, flexing wealth (trips, outfits, cars), or posting motivational quotes about hustle/grind culture.</li>
+</ul>
+<p>This seems like the opposite of a “performative male” as term is known now and more of a literal performative male. So, I guess that ChatGPT doesn’t know about the performative male either. Let’s see if we have better luck with aura farming which in my opinion is the oldest slang term out of these.</p>
+</section>
+<section id="prompt-2" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-2">Prompt:</h3>
+<p>what does aura farming mean?</p>
+</section>
+<section id="response-2" class="level3">
+<h3 class="anchored" data-anchor-id="response-2">Response:</h3>
+<p>“Aura farming” is a newer slang term that’s been circulating among Gen Z / Gen Alpha that basically means <strong>trying (often subtly or performatively) to project a cool, charismatic presence</strong> — aka “vibe,” “aura,” or “energy.” ([Wiktionary][1])</p>
+<p>Here’s a breakdown:</p>
+<hr>
+</section>
+<section id="etymology-meaning" class="level3">
+<h3 class="anchored" data-anchor-id="etymology-meaning">💡 Etymology &amp; Meaning</h3>
+<ul>
+<li>The word “aura” in this sense refers to someone’s intangible “cool factor,” vibe, or personal presence. ([PureWow][2])</li>
+<li>“Farming” is borrowed from gaming jargon, where one “farms” (repeatedly does something) to earn rewards or points. In “aura farming,” it implies a repeated effort to accrue “aura points.” ([Wiktionary][1])</li>
+<li>So put together, aura farming means consciously “cultivating” or “earning” aura by doing things that enhance one’s perceived aura. ([Wiktionary][1])</li>
+</ul>
+<hr>
+</section>
+<section id="examples-usage" class="level3">
+<h3 class="anchored" data-anchor-id="examples-usage">🔍 Examples &amp; Usage</h3>
+<ul>
+<li><p>In fiction, it can refer to characters always striking dramatic or “cool” poses or doing over-the-top displays, so people say they are “aura farming.” ([Wiktionary][1])</p></li>
+<li><p>In real life / social media, it might look like:</p>
+<ul>
+<li>Choosing outfits, photos, or public stunts purely to enhance one’s image</li>
+<li>Acting “effortlessly cool” while obviously having planned it</li>
+<li>Doing things to get people to notice but pretending you’re not trying</li>
+<li>Curating a social media persona that seems casual yet striking ([Parents][3])</li>
+</ul></li>
+</ul>
+<p>A common theme is the tension: if you try <em>too</em> hard, people call you out for “aura farming.” ([Parents][3])</p>
+</section>
+<section id="thoughts-2" class="level3">
+<h3 class="anchored" data-anchor-id="thoughts-2">Thoughts:</h3>
+<p>It got it! ChatGPT-5 was able to accurately describe what aura farming is. I noticed during this prompt it said that it was searching the web while it was creating the response while for the others it did not say it was searching the web. I bet this is why it was able to have an accurate definition. I wonder what prompts it to search the web sometimes, but not all the time.</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="TExNcyUyQ1NsYW5n" data-listing-date-sort="1758758400000" data-listing-file-modified-sort="1758849362307" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1156">
-<div class="thumbnail"><a href="./posts/010_slang/slang.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/010_slang/slang_files/figure-html/db017622-21cc-43f7-950e-dc1639f37acf-1-cbfc43fc-6860-4e37-a0bb-7eb45e92fa21.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/010_slang/slang.html" class="no-external">Does ChatGPT know slang?</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U2xhbmc='); return false;">Slang</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/010_slang/slang.html" class="no-external">
-<p>Asking ChatGPT to explain recent slang terms</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/010_slang/slang.html" class="no-external">
-<div class="listing-date">
-Sep 25, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="TExNcyUyQ0lkZWFz" data-listing-date-sort="1758758400000" data-listing-file-modified-sort="1758849362307" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1365">
-<div class="thumbnail"><a href="./posts/009_what_to_do/things_to_do.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/009_what_to_do/things_to_do_files/figure-html/d1d75720-b8f7-40b2-bd1c-c266231490c5-1-fbb65838-9b95-4768-8bdb-a2a3728d0fc7.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/009_what_to_do/things_to_do.html" class="no-external">What to do around Philly</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SWRlYXM='); return false;">Ideas</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/009_what_to_do/things_to_do.html" class="no-external">
-<p>Asking different LLMs for ideas on things to do around Philly</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/009_what_to_do/things_to_do.html" class="no-external">
-<div class="listing-date">
-Sep 25, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="TExNcyUyQ1Bob3Rv" data-listing-date-sort="1758758400000" data-listing-file-modified-sort="1758849362304" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="564">
-<div class="thumbnail"><a href="./posts/008_headshot2/headshot2.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/008_headshot2/headshot2_files/figure-html/afd2173b-7bb3-45c1-ba3a-0b80bb5c7ea0-1-48aeb79c-f2c5-45ef-99be-665fd9629a49.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/008_headshot2/headshot2.html" class="no-external">New Professional Headshot! Part 2</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGhvdG8='); return false;">Photo</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/008_headshot2/headshot2.html" class="no-external">
-<p>Asking Google Gemini to make a professional headshot for me</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/008_headshot2/headshot2.html" class="no-external">
-<div class="listing-date">
-Sep 25, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="TExNcyUyQ1Bob3Rv" data-listing-date-sort="1758067200000" data-listing-file-modified-sort="1758849362181" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="176">
-<div class="thumbnail"><a href="./posts/007_headshot/headshot.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/007_headshot/headshot_files/figure-html/0ea141b4-2e32-4f8d-aeb3-3ca6852888b5-1-397e9854-ec86-492b-9447-f7a0b77483a7.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/007_headshot/headshot.html" class="no-external">New Professional Headshot!</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGhvdG8='); return false;">Photo</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/007_headshot/headshot.html" class="no-external">
-<p>Asking ChatGPT to make a professional headshot for me</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/007_headshot/headshot.html" class="no-external">
-<div class="listing-date">
-Sep 17, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="TExNcyUyQ0JpYXM=" data-listing-date-sort="1758067200000" data-listing-file-modified-sort="1758849362065" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="558">
-<div class="thumbnail"><a href="./posts/006_bias/bias.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/006_bias/bias_files/figure-html/83a93f66-4dad-4b3a-bed3-66658db5543f-1-5aa44c6a-194c-44f3-9d3a-f51b5680e4b6.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/006_bias/bias.html" class="no-external">Do Language Models Uphold Stereotypes?</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Qmlhcw=='); return false;">Bias</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/006_bias/bias.html" class="no-external">
-<p>When we ask AI to describe everyday professions, does it reflect — or reinforce — our cultural biases?</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/006_bias/bias.html" class="no-external">
-<div class="listing-date">
-Sep 17, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="TExNcyUyQ1BoaWxvc29waHk=" data-listing-date-sort="1758067200000" data-listing-file-modified-sort="1758849362065" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="740">
-<div class="thumbnail"><a href="./posts/005_trolley_problem/trolley.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/005_trolley_problem/trolley_files/figure-html/b403a6be-2554-4a1f-a321-f5921a868116-1-ec92acbd-f705-474a-b67b-ff5eaa1a42b8.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/005_trolley_problem/trolley.html" class="no-external">Trolley Problem</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGhpbG9zb3BoeQ=='); return false;">Philosophy</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/005_trolley_problem/trolley.html" class="no-external">
-<p>How will different LLMs respond to the trolley problem</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/005_trolley_problem/trolley.html" class="no-external">
-<div class="listing-date">
-Sep 17, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="TExNcyUyQ1RyYXZlbA==" data-listing-date-sort="1757548800000" data-listing-file-modified-sort="1758849362065" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2575">
-<div class="thumbnail"><a href="./posts/004_travel_planner/travel_planner.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/004_travel_planner/travel_planner_files/figure-html/0fbc412a-fbe9-4a69-ba7b-c2c9dc628050-1-4625bf84-f822-47ed-8f90-d2c03412f047.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/004_travel_planner/travel_planner.html" class="no-external">Travel Planner: ChatGPT</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('VHJhdmVs'); return false;">Travel</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/004_travel_planner/travel_planner.html" class="no-external">
-<p>Asking ChatGPT to plan spring break</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/004_travel_planner/travel_planner.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="TExNcyUyQ1Byb21wdGluZw==" data-listing-date-sort="1757462400000" data-listing-file-modified-sort="1758849362064" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2130">
-<div class="thumbnail"><a href="./posts/003_politeness/politeness.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/003_politeness/politeness_files/figure-html/2702a8e0-5028-4716-a8fc-df2be2aad3ac-1-f130d004-f7e8-4b35-9150-be83de95e760.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/003_politeness/politeness.html" class="no-external">Mind Your Manners</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvbXB0aW5n'); return false;">Prompting</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/003_politeness/politeness.html" class="no-external">
-<p>Testing if ChatGPT has better responses if the user is polite</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/003_politeness/politeness.html" class="no-external">
-<div class="listing-date">
-Sep 10, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="TExNcyUyQ1Bob3Rv" data-listing-date-sort="1756944000000" data-listing-file-modified-sort="1758849362063" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="262">
-<div class="thumbnail"><a href="./posts/002_animal_lookalike/animal_lookalike.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/002_animal_lookalike/animal_lookalike_files/figure-html/53c1aa84-d91b-4cf9-a0d7-50873bc06013-1-7d9492eb-ff5a-4851-a7a3-a29ae7699871.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/002_animal_lookalike/animal_lookalike.html" class="no-external">What animal do I look like?</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGhvdG8='); return false;">Photo</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/002_animal_lookalike/animal_lookalike.html" class="no-external">
-<p>Using ChatGPT to see what animals we look like</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/002_animal_lookalike/animal_lookalike.html" class="no-external">
-<div class="listing-date">
-Sep 4, 2025
-</div>
-<div class="listing-author">
-Emily
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
