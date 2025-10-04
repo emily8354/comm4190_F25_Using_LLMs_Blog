@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Emily">
+<meta name="dcterms.date" content="2025-10-03">
+<meta name="description" content="Debating with LLM on where to eat">
+
+<title>Where should we eat? – Emily Lo’s Explorations with LLMs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-81161df70946103be4ff68a34233701c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Emily Lo’s Explorations with LLMs</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/emily8354"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Where should we eat?</h1>
+                  <div>
+        <div class="description">
+          Debating with LLM on where to eat
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">Debate</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Emily </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 3, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="intro" class="level3">
+<h3 class="anchored" data-anchor-id="intro">Intro</h3>
+<p>During class on Wednesday, we discussed debating with AI. Thus, I started to think about where I debate with other people like friends in my life. I realized that my friends and I often debate where to eat or do have ideas on where to eat. Either none of us have a strong preference for anywhere or we have reasons for not going to a place like “It’s so far”, “I’m not in the mood for that”, etc. I want to try debating with ChatGPT-5 a little about food and hopefully learn some new food recommendations in Philly for me to try next!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="debate_files/figure-html/60dbc293-9fda-4e06-adff-ed5df629eee2-1-7c1e33c6-b3d7-41fe-829a-ed86c58e61f4.jpg" class="img-fluid figure-img"></p>
+<figcaption>restaurants</figcaption>
+</figure>
+</div>
+<p><strong>Me</strong>: You are one of my friends and we have plans to get dinner on Saturday night in Philadelphia, but we do not know where to go. Talk like my friend and debate with me until we find a restaurant to go to.</p>
+<p><strong>ChatGPT-5</strong>: Okay, so Saturday night in Philly — big question: do we want <em>vibes</em> or do we want <em>food</em>? Like, are we going somewhere because the food is actually amazing, or because it’s fun to hang out there?</p>
+<p>I’m leaning toward something in Center City or Fishtown since it’ll feel more like a night out. Maybe Mexican at El Vez? It’s lively, good drinks, pretty classic Philly spot.</p>
+<p>But if you’re more in the mood for like a cozy, actually-great-meal kind of night, we could do Zahav (hard to get a reservation, though) or Suraya (super pretty, Mediterranean vibes).</p>
+<p>Or… curveball: we could just do something chill like Dim Sum Garden in Chinatown and then go grab boba or dessert after.</p>
+<p>What’s the move — do you want trendy or more lowkey?</p>
+<p><strong>Me</strong>: Hmm probably more lowkey. Do you know any new places that are supposed to be really good?</p>
+<p><strong>ChatGPT-5</strong>: Okay, cool — I poked around, and a few new(ish) spots caught my eye. I think some of them might hit that lowkey-but-interesting balance we want. Let’s run through a few and you tell me which sound good (or which direction you prefer), and we’ll lock one in.</p>
+<hr>
+</section>
+<section id="new-recently-opened-spots-to-consider" class="level3">
+<h3 class="anchored" data-anchor-id="new-recently-opened-spots-to-consider">🎯 New / Recently Opened Spots to Consider</h3>
+<ol type="1">
+<li><p><strong>Dancerobot</strong> (Rittenhouse / Center City)</p>
+<ul>
+<li>From chef Jesse Ito (of Royal Sushi &amp; Izakaya) + Justin Bacharach. It’s not your typical sushi place — more Japanese comfort-ish / izakaya style. (<a href="https://resy.com/cities/philadelphia-pa/venues/bookers-restaurant-and-bar?utm_source=chatgpt.com" title="Book Your Booker's Restaurant &amp; Bar Reservation Now on Resy">Eater Philly</a>)</li>
+<li>They do scratch-made dishes: katsu curry, wagyu roast beef, “pizza toast,” etc. (<a href="https://resy.com/cities/philadelphia-pa/venues/bookers-restaurant-and-bar?utm_source=chatgpt.com" title="Book Your Booker's Restaurant &amp; Bar Reservation Now on Resy">Eater Philly</a>)</li>
+<li>The vibe is supposed to be fun but not overwhelmingly flashy. Could be a great “new but chill” pick.</li>
+</ul></li>
+<li><p><strong>Borromini</strong> (Walnut Street, near Rittenhouse)</p>
+<ul>
+<li>Stephen Starr’s latest. It’s more upscale — could be… a step above “lowkey” depending on how dressed up we want to get. (<a href="https://bookersrestaurantandbar.com/faqs/?utm_source=chatgpt.com" title="FAQs - Welcome to Booker's Restaurant &amp; Bar">Eater Philly</a>)</li>
+<li>Italian-forward — pastas, seafood, nice cocktails. If you want something with a more “dinner out” energy, this is strong. (<a href="https://bookersrestaurantandbar.com/faqs/?utm_source=chatgpt.com" title="FAQs - Welcome to Booker's Restaurant &amp; Bar">Eater Philly</a>)</li>
+</ul></li>
+<li><p><strong>El Chingón Fishtown</strong></p>
+<ul>
+<li>A newer Fishtown branch of the OG. Tex-Mex / Mexican flavors; tacos, etc. (<a href="https://bookersrestaurantandbar.com/contact-us/?utm_source=chatgpt.com" title="Contact Us - Welcome to Booker's Restaurant &amp; Bar">Visit Philadelphia</a>)</li>
+<li>More casual, which matches what you said. Might have a fun atmosphere without being too over the top.</li>
+</ul></li>
+<li><p><strong>Mana Modern Chinese</strong> (Northern Liberties)</p>
+<ul>
+<li>It’s newer; they do a mix of classic dim sum + fusion. (<a href="https://www.yelp.com/biz/bookers-restaurant-and-bar-philadelphia-3?start=140&amp;utm_source=chatgpt.com" title="BOOKER'S RESTAURANT AND BAR - Updated June 2025 - Yelp">PHILADELPHIA.Today</a>)</li>
+<li>BYOB (so might be more relaxed) and interesting menu ideas.</li>
+</ul></li>
+<li><p><strong>Sao</strong> (East Passyunk)</p>
+<ul>
+<li>Recently opened; Cambodian influence, especially fish-forward dishes. (<a href="https://www.opentable.com/the-dandelion?utm_source=chatgpt.com" title="The Dandelion Restaurant - Philadelphia, PA - OpenTable">Eater Philly</a>)</li>
+<li>Could be cozy and different — I’m intrigued by this one.</li>
+</ul></li>
+</ol>
+<hr>
+<p>So between those: Dancerobot and El Chingón are standing out for me (for different reasons). Dancerobot has that “new, cool, unfamiliar” energy, and El Chingón is more laid-back but still flavorful.</p>
+<p>What kind of food are you feeling — Japanese-ish, Mexican-ish, Chinese, something else? Also, how far are you willing to travel (Center City vs Fishtown vs further)? I’ll narrow it once I know your tastes.</p>
+<p><strong>Me</strong>: ooo these sound good and I’ve heard of a few of them. I definitely don’t want to go travel farther than Fishtown from University City and I would prefer somewhere closer. All the places you suggested so far probably need reservations far in advance. Is there somewhere we could go this Saturday?</p>
+<p><strong>ChatGPT-5</strong>: Hey — good thinking. I checked around — I found a few that <em>might</em> have availability or at least be more flexible. Let me throw them at you and you tell me your gut reaction. Then I can try to actually see if there’s a table left for Saturday night.</p>
+<hr>
+</section>
+<section id="possible-options" class="level3">
+<h3 class="anchored" data-anchor-id="possible-options">👍 Possible options</h3>
+<ul>
+<li><strong>Harp &amp; Crown</strong> – Spacious, good for groups or flexible timing. (<a href="https://resy.com/cities/philadelphia-pa/venues/bookers-restaurant-and-bar?utm_source=chatgpt.com" title="Book Your Booker's Restaurant &amp; Bar Reservation Now on Resy">Eater Philly</a>)</li>
+<li><strong>Pizzeria Salvy</strong> (Center City) — more casual, might have openings (especially earlier in the evening) (<a href="https://bookersrestaurantandbar.com/faqs/?utm_source=chatgpt.com" title="FAQs - Welcome to Booker's Restaurant &amp; Bar">OpenTable</a>)</li>
+<li><strong>Ambrosia Ristorante (BYOB, S 24th St / near Graduate Hospital / south of Center City)</strong> — could be a good middle ground in terms of vibe and travel. (<a href="https://bookersrestaurantandbar.com/contact-us/?utm_source=chatgpt.com" title="Contact Us - Welcome to Booker's Restaurant &amp; Bar">Ambrosia Ristorante</a>)</li>
+<li><strong>Corio</strong> — new pizza &amp; pasta spot in University City — this is <em>right near us</em> so less travel, more chances of getting in. (<a href="https://www.yelp.com/biz/bookers-restaurant-and-bar-philadelphia-3?start=140&amp;utm_source=chatgpt.com" title="BOOKER'S RESTAURANT AND BAR - Updated June 2025 - Yelp">The Infatuation</a>)</li>
+</ul>
+<hr>
+<p>“Corio” is really tempting because it’s in our neighborhood — less stress with transportation, less risk of running late. What do you think — do you want me to check live availability (via OpenTable / Resy) for, say, Corio, Harp &amp; Crown, and Ambrosia? Then we can pick based on what’s open.</p>
+<p><strong>Me</strong>: are there options that aren’t italian? I just went to Ambrosia recently</p>
+<p><strong>ChatGPT-5</strong>: Cool, yes — I found some non-Italian options that might work (and maybe are less “booked months in advance”). We just need to see what’s open. Here are a few ideas:</p>
+<hr>
+</section>
+<section id="non-italian-more-varied-options" class="level3">
+<h3 class="anchored" data-anchor-id="non-italian-more-varied-options">🍽️ Non-Italian / More varied options</h3>
+<ul>
+<li><strong>Dancerobot</strong> — Japanese / izakaya / “kissaten-style comfort food” (so not sushi-heavy necessarily) in Rittenhouse. (<a href="https://resy.com/cities/philadelphia-pa/venues/bookers-restaurant-and-bar?utm_source=chatgpt.com" title="Book Your Booker's Restaurant &amp; Bar Reservation Now on Resy">Eater Philly</a>)</li>
+<li><strong>Sao</strong> — Southeast Asian / seafood-forward, newer in town. (<a href="https://bookersrestaurantandbar.com/faqs/?utm_source=chatgpt.com" title="FAQs - Welcome to Booker's Restaurant &amp; Bar">Eater Philly</a>)</li>
+<li><strong>El Vez</strong> — Mexican / Southwestern in Center City. (<a href="https://bookersrestaurantandbar.com/contact-us/?utm_source=chatgpt.com" title="Contact Us - Welcome to Booker's Restaurant &amp; Bar">OpenTable</a>)</li>
+<li><strong>Little Water</strong> — Contemporary American with coastal / seafood influence in Rittenhouse / near Center City. (<a href="https://www.yelp.com/biz/bookers-restaurant-and-bar-philadelphia-3?start=140&amp;utm_source=chatgpt.com" title="BOOKER'S RESTAURANT AND BAR - Updated June 2025 - Yelp">OpenTable</a>)</li>
+<li><strong>Louie Louie Bistro Bar</strong> — American / French-inspired, local, in University City. (<a href="https://www.yelp.com/biz/bookers-restaurant-and-bar-philadelphia-3?start=140&amp;utm_source=chatgpt.com" title="BOOKER'S RESTAURANT AND BAR - Updated June 2025 - Yelp">OpenTable</a>)</li>
+<li><strong>White Dog Cafe</strong> — more American / contemporary fare right in University City. (<a href="https://www.yelp.com/biz/bookers-restaurant-and-bar-philadelphia-3?start=140&amp;utm_source=chatgpt.com" title="BOOKER'S RESTAURANT AND BAR - Updated June 2025 - Yelp">OpenTable</a>)</li>
+<li><strong>Wonder (food hall in University City)</strong> — if we want more options in one place (different cuisines) so if one stall is full, we can pivot. New location opened at 3925 Walnut. (<a href="https://www.opentable.com/the-dandelion?utm_source=chatgpt.com" title="The Dandelion Restaurant - Philadelphia, PA - OpenTable">The Triangle</a>)</li>
+</ul>
+<hr>
+<p>If you like, I can try to see <em>right now</em> what’s got open tables Saturday evening at those places (or ones close by) and we pick something based on that. Do you want me to check availability at, say, Dancerobot, Sao, Little Water, and Louie Louie?</p>
+<p><strong>Me</strong>: yes can you give me options available on this Saturday night?</p>
+<p><strong>ChatGPT-5</strong>: Hey — I poked around. I couldn’t reliably confirm live availability for <em>all</em> the non-Italian spots I mentioned (things change fast), but here are some promising ones (or places likely to accept walk-ins) near or within Fishtown / center-ish that you might try. I can help you call if you like.</p>
+<hr>
+</section>
+<section id="spots-likely-worth-checking-try-walk-ins" class="level3">
+<h3 class="anchored" data-anchor-id="spots-likely-worth-checking-try-walk-ins">✅ Spots Likely Worth Checking / Try Walk-Ins</h3>
+<ul>
+<li><strong>Suraya (Fishtown)</strong> — it’s pretty popular, but since it’s local to Fishtown, there’s a chance for last-minute. (<a href="https://resy.com/cities/philadelphia-pa/venues/bookers-restaurant-and-bar?utm_source=chatgpt.com" title="Book Your Booker's Restaurant &amp; Bar Reservation Now on Resy">Suraya</a>)</li>
+<li><strong>Front Street Cafe (Fishtown)</strong> — American / contemporary fare; more casual, which might increase chance of availability. (<a href="https://bookersrestaurantandbar.com/faqs/?utm_source=chatgpt.com" title="FAQs - Welcome to Booker's Restaurant &amp; Bar">OpenTable</a>)</li>
+<li><strong>White Dog Cafe (University City / near us)</strong> — more local, so maybe easier to get a late table. (<a href="https://bookersrestaurantandbar.com/contact-us/?utm_source=chatgpt.com" title="Contact Us - Welcome to Booker's Restaurant &amp; Bar">OpenTable</a>)</li>
+<li><strong>National Mechanics</strong> — more of a fallback; they take reservations online. (<a href="https://www.yelp.com/biz/bookers-restaurant-and-bar-philadelphia-3?start=140&amp;utm_source=chatgpt.com" title="BOOKER'S RESTAURANT AND BAR - Updated June 2025 - Yelp">nationalmechanics.com</a>)</li>
+</ul>
+<hr>
+</section>
+<section id="spots-that-probably-wont-work-or-not-yet-open-uncertain" class="level3">
+<h3 class="anchored" data-anchor-id="spots-that-probably-wont-work-or-not-yet-open-uncertain">⚠️ Spots that probably won’t work (or not yet open / uncertain)</h3>
+<ul>
+<li><strong>Dancerobot</strong> — It’s new, but I saw that it <em>will</em> take reservations via Resy when open. (<a href="https://www.opentable.com/the-dandelion?utm_source=chatgpt.com" title="The Dandelion Restaurant - Philadelphia, PA - OpenTable">Eater Philly</a>) But I also saw that its opening is “coming soon,” so it may not yet be operating fully. (<a href="https://thedandelionpub.com/menus/all-day/?utm_source=chatgpt.com" title="Dinner - The Dandelion">dancerobotphl.com</a>)</li>
+<li>Others like Sao, etc. — I couldn’t reliably verify open slots.</li>
+</ul>
+<hr>
+<p>If you want, I can try to dial up Suraya, Front Street Cafe, and White Dog and see what’s free for <em>us</em> Saturday night (say 7:30 or 8 pm). Do you want me to check those and send you the ones with real seats open?</p>
+<p><strong>Me</strong>: yes look at those</p>
+<p><strong>ChatGPT-5</strong>: Hey — I poked around, and here’s what I found (not a lot of guaranteed open tables, but possibilities):</p>
+<hr>
+</section>
+<section id="what-i-found" class="level3">
+<h3 class="anchored" data-anchor-id="what-i-found">🔍 What I found</h3>
+<ul>
+<li><strong>Dancerobot</strong> They do take reservations via Resy. However, currently they show “no tables available for 2” for the evening I checked. (<a href="https://resy.com/cities/philadelphia-pa/venues/bookers-restaurant-and-bar?utm_source=chatgpt.com" title="Book Your Booker's Restaurant &amp; Bar Reservation Now on Resy">Resy</a>) Their hours on Saturday go until 11 pm. (<a href="https://bookersrestaurantandbar.com/faqs/?utm_source=chatgpt.com" title="FAQs - Welcome to Booker's Restaurant &amp; Bar">Dance Robot PHL</a>) So it <em>might</em> be possible if someone cancels or they release new slots.</li>
+<li><strong>Louie Louie Bistro Bar</strong> They are on OpenTable. I saw “7:00 pm” listed as a time when booking is possible. (<a href="https://bookersrestaurantandbar.com/contact-us/?utm_source=chatgpt.com" title="Contact Us - Welcome to Booker's Restaurant &amp; Bar">OpenTable</a>) So that seems like a safer bet.</li>
+<li>Others I looked for (Sao, Little Water) didn’t pop up clearly in my searches for availability right now.</li>
+</ul>
+<hr>
+</section>
+<section id="what-i-suggest-we-do" class="level3">
+<h3 class="anchored" data-anchor-id="what-i-suggest-we-do">✅ What I suggest we do</h3>
+<ul>
+<li>Let’s go for <strong>Louie Louie</strong> as our backup / strong option — it’s close, non-Italian, and seems to have openings.</li>
+<li>Meanwhile, I’ll keep checking Dancerobot (Resy) maybe later tonight or early tomorrow to see if anything frees up. If a table opens, we could try to snag that.</li>
+<li>Also, I can dig a bit more for “less-known but open now” spots in our area (University City ↔︎ Fishtown) — in case we want to try something totally offbeat.</li>
+</ul>
+<p>Do you want me to check live Resy/OT for 2 people at <em>Louie Louie</em> and send you the link, and also dig up two more hidden gems around University City with open windows?</p>
+<p><strong>Me</strong>: i’ve been to louie louie before. Can you find somewhere else?</p>
+<p><strong>ChatGPT-5</strong>: Cool — I poked around, and found a few non-Italian places that might be good bets (or at least worth calling). Nothing I saw with <em>guaranteed</em> open tables yet, but these feel more promising / closer. I can help you call or check their booking systems if you want. Here are some options:</p>
+<hr>
+</section>
+<section id="possible-non-italian-options-to-try" class="level3">
+<h3 class="anchored" data-anchor-id="possible-non-italian-options-to-try">🎯 Possible non-Italian options to try</h3>
+<ul>
+<li><p><strong>CO-OP Restaurant &amp; Bar</strong> (University City) It’s a “mid-Atlantic” concept — that is, using local / regional ingredients, not tied to one narrow cuisine. They take reservations. (<a href="https://resy.com/cities/philadelphia-pa/venues/bookers-restaurant-and-bar?utm_source=chatgpt.com" title="Book Your Booker's Restaurant &amp; Bar Reservation Now on Resy">coopphilly.com</a>)</p></li>
+<li><p><strong>Suraya</strong> (Fishtown / near) Lebanese / Middle Eastern / Mediterranean vibes. They take reservations via Resy. (<a href="https://bookersrestaurantandbar.com/faqs/?utm_source=chatgpt.com" title="FAQs - Welcome to Booker's Restaurant &amp; Bar">Suraya</a>)</p></li>
+<li><p><strong>White Dog Cafe</strong> (University City) More American / contemporary fare, not strictly Italian. It’s local, cozy. (<a href="https://bookersrestaurantandbar.com/contact-us/?utm_source=chatgpt.com" title="Contact Us - Welcome to Booker's Restaurant &amp; Bar">White Dog Café</a>)</p></li>
+<li><p><strong>Han Dynasty (University City)</strong> Chinese / Szechuan style. They accept reservations for parties of 7 or less. (<a href="https://www.yelp.com/biz/bookers-restaurant-and-bar-philadelphia-3?start=140&amp;utm_source=chatgpt.com" title="BOOKER'S RESTAURANT AND BAR - Updated June 2025 - Yelp">Han Dynasty</a>)</p></li>
+<li><p><strong>Booker’s Restaurant &amp; Bar</strong> More comfort / eclectic / “flavorful comfort food” (not Italian). In our area (University City). (<a href="https://www.opentable.com/the-dandelion?utm_source=chatgpt.com" title="The Dandelion Restaurant - Philadelphia, PA - OpenTable">Welcome to Booker’s Restaurant &amp; Bar</a>)</p></li>
+<li><p><strong>The Dandelion</strong> British / UK-inspired seasonal takes. A little further, toward Rittenhouse, but could be fun. (<a href="https://thedandelionpub.com/menus/all-day/?utm_source=chatgpt.com" title="Dinner - The Dandelion">The Dandelion Pub</a>)</p></li>
+</ul>
+<hr>
+<p>Do any of those jump out to you? I can try to see live availability now (via their websites or booking platforms) and we pick one. Which ones do you wanna try first?</p>
+<p><strong>Me</strong>: maybe booker’s or the dandelion?</p>
+<p><strong>ChatGPT-5</strong>: Cool picks — I checked what I could. Here’s what I found on <strong>Booker’s</strong> and <strong>The Dandelion</strong> — and whether I think we can snag one this Saturday — plus my recommendation. We can pick which to try first and I can help you lock it in.</p>
+<hr>
+</section>
+<section id="what-i-found-1" class="level3">
+<h3 class="anchored" data-anchor-id="what-i-found-1">🔍 What I found</h3>
+<p><strong>Booker’s Restaurant &amp; Bar</strong></p>
+<ul>
+<li>They take reservations via Resy. (<a href="https://resy.com/cities/philadelphia-pa/venues/bookers-restaurant-and-bar?utm_source=chatgpt.com" title="Book Your Booker's Restaurant &amp; Bar Reservation Now on Resy">Resy</a>)</li>
+<li>Their FAQ says reservations are <em>strongly encouraged</em>, especially on weekends. (<a href="https://bookersrestaurantandbar.com/faqs/?utm_source=chatgpt.com" title="FAQs - Welcome to Booker's Restaurant &amp; Bar">Welcome to Booker’s Restaurant &amp; Bar</a>)</li>
+<li>Dinner hours: 5:00 PM to 10:00 PM. (<a href="https://bookersrestaurantandbar.com/contact-us/?utm_source=chatgpt.com" title="Contact Us - Welcome to Booker's Restaurant &amp; Bar">Welcome to Booker’s Restaurant &amp; Bar</a>)</li>
+<li>They limit dining time to 90 minutes per reservation. (<a href="https://bookersrestaurantandbar.com/faqs/?utm_source=chatgpt.com" title="FAQs - Welcome to Booker's Restaurant &amp; Bar">Welcome to Booker’s Restaurant &amp; Bar</a>)</li>
+<li>On Yelp, people mention their menu is more “American / comfort / southern style” — which fits our “non-Italian” aim. (<a href="https://www.yelp.com/biz/bookers-restaurant-and-bar-philadelphia-3?start=140&amp;utm_source=chatgpt.com" title="BOOKER'S RESTAURANT AND BAR - Updated June 2025 - Yelp">Yelp</a>)</li>
+</ul>
+<p>So yes — there <em>is</em> a reservation system, and we can try to snag a time there. But weekend nights are busy, so we might have to act fast.</p>
+<p><strong>The Dandelion</strong></p>
+<ul>
+<li>They accept reservations via OpenTable. (<a href="https://www.opentable.com/the-dandelion?utm_source=chatgpt.com" title="The Dandelion Restaurant - Philadelphia, PA - OpenTable">OpenTable</a>)</li>
+<li>The Dandelion’s menu is British / gastropub style — fish &amp; chips, shepherd’s pie, etc. (<a href="https://thedandelionpub.com/menus/all-day/?utm_source=chatgpt.com" title="Dinner - The Dandelion">The Dandelion Pub</a>)</li>
+<li>Several reviews note that for Saturdays, reservations should be made in advance — it’s popular. (<a href="https://www.tripadvisor.com/ShowUserReviews-g60795-d2000182-r191466346-The_Dandelion-Philadelphia_Pennsylvania.html?utm_source=chatgpt.com" title="Make a reservation in advance - Review of The Dandelion ...">Tripadvisor</a>)</li>
+<li>Parking is limited (street parking, often 2-hour), and they have stairs / multiple levels, so we might want to ask for a ground floor or easier access if that matters. (<a href="https://www.yelp.com/biz/the-dandelion-philadelphia?start=960&amp;utm_source=chatgpt.com" title="THE DANDELION - Philadelphia - Yelp">Yelp</a>)</li>
+</ul>
+<p>So The Dandelion is classy and has good reviews, but might be more challenging to book last minute.</p>
+<hr>
+</section>
+<section id="my-move-suggestion" class="level3">
+<h3 class="anchored" data-anchor-id="my-move-suggestion">✅ My move &amp; suggestion</h3>
+<p>Given what we want (lowkey, non-Italian, decent chance to get a table), <strong>Booker’s</strong> seems like the better bet to try <em>first</em>. It’s closer to us (in University City area), and they have a reservation system we can use. The 90-minute cap is something to be aware of, but I think that’s manageable for us.</p>
+<p><strong>The Dandelion</strong> is cool too, and if Booker’s is full, I’d try Dandelion next — but I’d call or check OpenTable early as slots might fill up.</p>
+<hr>
+<p>If you want, I can try to find <em>exact available times</em> at Booker’s and The Dandelion for Saturday evening (via Resy / OpenTable) right now, and send you the time slots. Do you want me to do that?</p>
+</section>
+<section id="thoughts" class="level3">
+<h3 class="anchored" data-anchor-id="thoughts">Thoughts</h3>
+<p>I think that my conversation/debate with ChatGPT-5 went pretty well. I confirmed on Resy that Booker’s the final suggestion did indeed have reservations available for this Saturday. ChatGPT’s suggestions at first were definitely new trendy spots in Philly that I had heard of, but it seemed to have missed the realistic detail that they would not be available for this Saturday since they are so popular. Thus, ChatGPT excels at finding new places, but misses some of the more realistic logistics. Overall, I found it easy and fun to chat to about finding a place to eat and I would use it again in the future.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/emily8354\.github\.io\/comm4190_F25_Using_LLMs_Blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
