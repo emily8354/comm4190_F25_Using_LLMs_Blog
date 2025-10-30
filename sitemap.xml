@@ -2,70 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/about.html</loc>
-    <lastmod>2025-10-27T01:28:40.575Z</lastmod>
+    <lastmod>2025-10-30T15:49:59.068Z</lastmod>
   </url>
   <url>
     <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/014_side_quests/side_quest.html</loc>
-    <lastmod>2025-10-27T01:28:40.957Z</lastmod>
+    <lastmod>2025-10-30T15:49:59.449Z</lastmod>
   </url>
   <url>
     <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/013_book_review/book_review.html</loc>
-    <lastmod>2025-10-27T01:28:40.956Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/002_animal_lookalike/animal_lookalike.html</loc>
-    <lastmod>2025-10-27T01:28:40.706Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/005_trolley_problem/trolley.html</loc>
-    <lastmod>2025-10-27T01:28:40.707Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/009_what_to_do/things_to_do.html</loc>
-    <lastmod>2025-10-27T01:28:40.954Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/016_halloween/halloween.html</loc>
-    <lastmod>2025-10-27T01:28:41.079Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/007_headshot/headshot.html</loc>
-    <lastmod>2025-10-27T01:28:40.824Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/index.html</loc>
-    <lastmod>2025-10-27T01:28:40.575Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/015_image_generation/image_generation.html</loc>
-    <lastmod>2025-10-27T01:28:40.966Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/006_bias/bias.html</loc>
-    <lastmod>2025-10-27T01:28:40.708Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/010_slang/slang.html</loc>
-    <lastmod>2025-10-27T01:28:40.955Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/004_travel_planner/travel_planner.html</loc>
-    <lastmod>2025-10-27T01:28:40.707Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/011_romance/romance.html</loc>
-    <lastmod>2025-10-27T01:28:40.956Z</lastmod>
+    <lastmod>2025-10-30T15:49:59.448Z</lastmod>
   </url>
   <url>
     <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/012_debate/debate.html</loc>
-    <lastmod>2025-10-27T01:28:40.956Z</lastmod>
+    <lastmod>2025-10-30T15:49:59.447Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/011_romance/romance.html</loc>
+    <lastmod>2025-10-30T15:49:59.447Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/004_travel_planner/travel_planner.html</loc>
+    <lastmod>2025-10-30T15:49:59.200Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/010_slang/slang.html</loc>
+    <lastmod>2025-10-30T15:49:59.446Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/006_bias/bias.html</loc>
+    <lastmod>2025-10-30T15:49:59.200Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/015_image_generation/image_generation.html</loc>
+    <lastmod>2025-10-30T15:49:59.457Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/index.html</loc>
+    <lastmod>2025-10-30T15:49:59.068Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/007_headshot/headshot.html</loc>
+    <lastmod>2025-10-30T15:49:59.320Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/016_halloween/halloween.html</loc>
+    <lastmod>2025-10-30T15:49:59.572Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/009_what_to_do/things_to_do.html</loc>
+    <lastmod>2025-10-30T15:49:59.446Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/005_trolley_problem/trolley.html</loc>
+    <lastmod>2025-10-30T15:49:59.200Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/002_animal_lookalike/animal_lookalike.html</loc>
+    <lastmod>2025-10-30T15:49:59.199Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/017_book/book.html</loc>
+    <lastmod>2025-10-30T15:49:59.573Z</lastmod>
   </url>
   <url>
     <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/003_politeness/politeness.html</loc>
-    <lastmod>2025-10-27T01:28:40.707Z</lastmod>
+    <lastmod>2025-10-30T15:49:59.200Z</lastmod>
   </url>
   <url>
     <loc>https://emily8354.github.io/comm4190_F25_Using_LLMs_Blog/posts/008_headshot2/headshot2.html</loc>
-    <lastmod>2025-10-27T01:28:40.951Z</lastmod>
+    <lastmod>2025-10-30T15:49:59.442Z</lastmod>
   </url>
 </urlset>
