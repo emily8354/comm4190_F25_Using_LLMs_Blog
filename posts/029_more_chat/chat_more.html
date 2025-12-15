@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Emily">
+<meta name="dcterms.date" content="2025-12-15">
+<meta name="description" content="Asking ChatGPT More Questions about Me">
+
+<title>What does ChatGPT know about me? pt.&nbsp;2 – Emily Lo's Explorations with LLMs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-81161df70946103be4ff68a34233701c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Emily Lo’s Explorations with LLMs</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/emily8354"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">What does ChatGPT know about me? pt.&nbsp;2</h1>
+                  <div>
+        <div class="description">
+          Asking ChatGPT More Questions about Me
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">Chat</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Emily </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 15, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="intro" class="level3">
+<h3 class="anchored" data-anchor-id="intro">Intro</h3>
+<p>Since I had a lot fun with the last blog post, I decided to ask ChatGPT-5.1 more questions about me! These prompts are mostly following another TikTok I saw.</p>
+<p><mark style="background-color: lightblue; padding: 10px; display: block;"> PROMPT: Imagine that you are an experienced psychologist with 50 years of experience. Analyze the following data about me: - My age [substitute the number] - My 3-5 main interests (describe each one in detail) - My current activity (write what brings you money and what you do) - My biggest dream (detail) </mark></p>
+<p>I’ll do this <strong>as a psychologist with ~50 years of experience</strong>, but I need to be careful not to invent facts about you. So I’ll be explicit about <strong>what I’m inferring from our past chats</strong> versus <strong>what would need confirmation</strong>. Think of this as a <em>working psychological sketch</em>, not a diagnosis.</p>
+<hr>
+</section>
+<section id="psychological-profile-based-on-available-data" class="level2">
+<h2 class="anchored" data-anchor-id="psychological-profile-based-on-available-data">Psychological Profile (Based on Available Data)</h2>
+<section id="age" class="level3">
+<h3 class="anchored" data-anchor-id="age"><strong>Age</strong></h3>
+<p><strong>Inferred:</strong> ~21 years old You previously mentioned being 21 when discussing savings and investments. At this developmental stage, you’re in what psychology calls <strong>“emerging adulthood”</strong>—a period marked by identity exploration, experimentation, and a strong desire to align your life with personal values rather than external expectations.</p>
+<hr>
+</section>
+<section id="main-interests-35" class="level3">
+<h3 class="anchored" data-anchor-id="main-interests-35"><strong>Main Interests (3–5)</strong></h3>
+<section id="travel-cultural-exploration" class="level4">
+<h4 class="anchored" data-anchor-id="travel-cultural-exploration"><strong>1. Travel &amp; Cultural Exploration</strong></h4>
+<p>You don’t travel passively—you seek <strong>context, specificity, and meaning</strong> (asking about local brands, traditions, seasonal experiences like Christmas in Tokyo). This suggests:</p>
+<ul>
+<li>High <strong>openness to experience</strong></li>
+<li>A desire to understand <em>how people live</em>, not just where they live</li>
+<li>Likely motivation: self-expansion rather than escapism</li>
+</ul>
+<p>Psychologically, travel for you appears to function as <strong>identity enrichment</strong>—you learn who you are by placing yourself in new cultural mirrors.</p>
+<hr>
+</section>
+<section id="aesthetics-fashion-shopping-with-discernment" class="level4">
+<h4 class="anchored" data-anchor-id="aesthetics-fashion-shopping-with-discernment"><strong>2. Aesthetics, Fashion, &amp; Shopping (with discernment)</strong></h4>
+<p>Your interest isn’t surface-level consumption; you ask about <em>Japanese brands, pricing differences, and style relevance</em>. This indicates:</p>
+<ul>
+<li>Strong aesthetic sensitivity</li>
+<li>Thoughtful consumer behavior (value + meaning)</li>
+<li>Likely enjoyment of self-expression through appearance</li>
+</ul>
+<p>This often correlates with people who experience <strong>emotion and identity through visual harmony</strong>.</p>
+<hr>
+</section>
+<section id="dance-performance-tap" class="level4">
+<h4 class="anchored" data-anchor-id="dance-performance-tap"><strong>3. Dance / Performance (Tap)</strong></h4>
+<p>Your repeated engagement with tap show themes and wordplay suggests:</p>
+<ul>
+<li>Comfort with structured creativity</li>
+<li>A need for rhythm, timing, and embodied expression</li>
+<li>Enjoyment of being both disciplined <em>and</em> playful</li>
+</ul>
+<p>From a psychological lens, dance often serves as:</p>
+<ul>
+<li>Emotional regulation</li>
+<li>Identity anchoring</li>
+<li>A social connector</li>
+</ul>
+<hr>
+</section>
+<section id="intellectual-curiosity-logic-philosophy-systems" class="level4">
+<h4 class="anchored" data-anchor-id="intellectual-curiosity-logic-philosophy-systems"><strong>4. Intellectual Curiosity (Logic, Philosophy, Systems)</strong></h4>
+<p>Your questions about logic, completeness theorems, cognition, and careful phrasing reveal:</p>
+<ul>
+<li>High abstract reasoning ability</li>
+<li>Enjoyment of precision and clarity</li>
+<li>A tendency to think <strong>meta</strong> (thinking about thinking)</li>
+</ul>
+<p>This is characteristic of someone who gains emotional safety from <strong>understanding structures</strong>—whether mathematical, social, or personal.</p>
+<hr>
+</section>
+</section>
+<section id="current-activity-money-what-you-do" class="level3">
+<h3 class="anchored" data-anchor-id="current-activity-money-what-you-do"><strong>Current Activity (Money + What You Do)</strong></h3>
+<p><strong>Inferred:</strong> Student or early-career individual with earned income, investing thoughtfully You’ve asked about:</p>
+<ul>
+<li>HYSA vs cash management</li>
+<li>Roth IRA investments</li>
+<li>Stock selection</li>
+</ul>
+<p>This suggests:</p>
+<ul>
+<li>Financial responsibility beyond your age group</li>
+<li>Long-term thinking</li>
+<li>A desire for autonomy and security</li>
+</ul>
+<p>Psychologically, this reflects <strong>future-oriented self-trust</strong>—you believe your future self is worth planning for.</p>
+<hr>
+</section>
+<section id="biggest-dream-inferred-interpreted" class="level3">
+<h3 class="anchored" data-anchor-id="biggest-dream-inferred-interpreted"><strong>Biggest Dream (Inferred &amp; Interpreted)</strong></h3>
+<p>Your dream does not appear to be a single job title or lifestyle trope. Instead, it looks like this:</p>
+<blockquote class="blockquote">
+<p><strong>To build a life that feels intentional, culturally rich, financially stable, emotionally expressive, and authentically “yours.”</strong></p>
+</blockquote>
+<p>More specifically:</p>
+<ul>
+<li>Freedom to explore the world without instability</li>
+<li>Creative outlets that are taken seriously, not sidelined</li>
+<li>Intellectual stimulation paired with emotional depth</li>
+<li>Relationships built on honesty, compatibility, and mutual growth</li>
+</ul>
+<p>This is the dream of someone who <strong>does not want to live reactively</strong>.</p>
+<hr>
+</section>
+</section>
+<section id="psychological-summary-50-year-clinicians-view" class="level2">
+<h2 class="anchored" data-anchor-id="psychological-summary-50-year-clinicians-view">Psychological Summary (50-Year Clinician’s View)</h2>
+<p>You present as:</p>
+<ul>
+<li>Intellectually curious</li>
+<li>Emotionally reflective</li>
+<li>Aesthetically sensitive</li>
+<li>Future-oriented</li>
+<li>Selective about relationships and commitments</li>
+</ul>
+<p>Your core tension is likely between:</p>
+<ul>
+<li><strong>Exploration vs.&nbsp;grounding</strong></li>
+<li><strong>Depth vs.&nbsp;decisiveness</strong></li>
+</ul>
+<p>You’re not lost—you’re <em>calibrating</em>.</p>
+<hr>
+<p>If you want, I can:</p>
+<ul>
+<li>Refine this with corrections</li>
+<li>Analyze strengths/blind spots</li>
+<li>Describe how others likely experience you</li>
+<li>Or map what kind of life paths would psychologically fit you best</li>
+</ul>
+<p><mark style="background-color: lightblue; padding: 10px; display: block;"> PROMPT: Now show me three unexpected twists of life that will lead me to this future, and explain how my character will change after each of them. </mark></p>
+<p>I’ll answer this the way a seasoned psychologist would—<strong>not by predicting events</strong>, but by identifying the kinds of <em>disruptions</em> that reliably reshape people with <em>your</em> traits. These are <strong>unexpected but psychologically coherent twists</strong> that often become turning points for someone like you.</p>
+<hr>
+</section>
+<section id="twist-1-a-door-closes-that-you-were-quietly-counting-on" class="level2">
+<h2 class="anchored" data-anchor-id="twist-1-a-door-closes-that-you-were-quietly-counting-on"><strong>Twist 1: A Door Closes That You Were Quietly Counting On</strong></h2>
+<p><strong>What happens</strong> Something you assumed would work out— a relationship, a program, a job path, or a geographic plan—ends abruptly or fails to materialize. Not dramatically. Just… <em>final</em>. No clean explanation.</p>
+<p>This is unexpected because you are:</p>
+<ul>
+<li>Thoughtful</li>
+<li>Prepared</li>
+<li>Generally “doing the right things”</li>
+</ul>
+<p>So you didn’t anticipate the <em>absence of payoff</em>.</p>
+<p><strong>Immediate impact on you</strong></p>
+<ul>
+<li>Confusion rather than devastation</li>
+<li>A private grief you don’t perform outwardly</li>
+<li>A temporary loss of narrative (“I don’t know what chapter I’m in”)</li>
+</ul>
+<p><strong>How your character changes</strong></p>
+<ul>
+<li>You stop assuming that good planning guarantees good outcomes</li>
+<li>You become <strong>less attached to imagined futures</strong></li>
+<li>You develop a subtle but powerful trait: <strong>psychological flexibility</strong></li>
+</ul>
+<p>This is where you shift from:</p>
+<blockquote class="blockquote">
+<p><em>“If I choose well, things will work out”</em> to <em>“I can work with whatever happens.”</em></p>
+</blockquote>
+<p>That shift is permanent—and essential to your future freedom.</p>
+<hr>
+</section>
+<section id="twist-2-you-succeed-in-something-that-doesnt-fulfill-you" class="level2">
+<h2 class="anchored" data-anchor-id="twist-2-you-succeed-in-something-that-doesnt-fulfill-you"><strong>Twist 2: You Succeed in Something That Doesn’t Fulfill You</strong></h2>
+<p><strong>What happens</strong> You achieve a goal that <em>should</em> feel validating:</p>
+<ul>
+<li>Recognition</li>
+<li>A role you worked toward</li>
+<li>External proof that you’re capable</li>
+</ul>
+<p>And instead of satisfaction, you feel… neutral. Maybe even restless.</p>
+<p>This surprises you because you’re not lazy or avoidant—you <em>care</em>.</p>
+<p><strong>Immediate impact on you</strong></p>
+<ul>
+<li>Quiet disillusionment</li>
+<li>Guilt for not feeling grateful enough</li>
+<li>Questioning your own motivations</li>
+</ul>
+<p><strong>How your character changes</strong></p>
+<ul>
+<li>You stop chasing achievement as identity</li>
+<li>You begin choosing experiences based on <strong>felt resonance</strong>, not optics</li>
+<li>You become harder to impress—and harder to manipulate</li>
+</ul>
+<p>This is where you learn:</p>
+<blockquote class="blockquote">
+<p><em>Competence is not the same as meaning.</em></p>
+</blockquote>
+<p>After this, your choices become more aligned, even if they look less conventional from the outside.</p>
+<hr>
+</section>
+<section id="twist-3-a-period-of-radical-aloneness-chosen-or-imposed" class="level2">
+<h2 class="anchored" data-anchor-id="twist-3-a-period-of-radical-aloneness-chosen-or-imposed"><strong>Twist 3: A Period of Radical Aloneness (Chosen or Imposed)</strong></h2>
+<p><strong>What happens</strong> For a stretch of time, you are:</p>
+<ul>
+<li>Geographically or emotionally on your own</li>
+<li>Untethered from familiar validation</li>
+<li>Forced to make decisions without consensus</li>
+</ul>
+<p>This could come through travel, a move, a breakup, or a transitional year.</p>
+<p><strong>Immediate impact on you</strong></p>
+<ul>
+<li>Heightened self-awareness</li>
+<li>Moments of loneliness mixed with clarity</li>
+<li>Strong internal dialogue</li>
+</ul>
+<p><strong>How your character changes</strong></p>
+<ul>
+<li>You become deeply self-trusting</li>
+<li>You learn the difference between loneliness and solitude</li>
+<li>Your presence becomes calmer, more grounded</li>
+</ul>
+<p>This is when you stop asking:</p>
+<blockquote class="blockquote">
+<p><em>“Am I doing this right?”</em> and start asking: <em>“Does this feel true to me?”</em></p>
+</blockquote>
+<p>People begin to experience you as <strong>quietly confident</strong> after this—less eager to explain yourself, more certain without being rigid.</p>
+<hr>
+</section>
+<section id="the-throughline" class="level2">
+<h2 class="anchored" data-anchor-id="the-throughline"><strong>The Throughline</strong></h2>
+<p>Each twist does something specific:</p>
+<ol type="1">
+<li><strong>Loss without drama → resilience without bitterness</strong></li>
+<li><strong>Success without fulfillment → discernment</strong></li>
+<li><strong>Aloneness without collapse → self-authorship</strong></li>
+</ol>
+<p>Together, they shape the exact future you described:</p>
+<ul>
+<li>Intentional</li>
+<li>Culturally rich</li>
+<li>Emotionally expressive</li>
+<li>Financially and psychologically autonomous</li>
+</ul>
+<hr>
+<p>If you want, I can:</p>
+<ul>
+<li>Identify which twist you’re closest to right now</li>
+<li>Map what <em>not</em> to do when each one happens</li>
+<li>Or describe the version of you on the other side of all three</li>
+</ul>
+<p><mark style="background-color: lightblue; padding: 10px; display: block;"> PROMPT: Describe one day in my life in 5 years, including details that I don’t even think about now: • My new habits • The environment I live in • My new friends </mark></p>
+<p>I’ll write this as a <strong>clinical imagination exercise</strong>—the kind used to help people sense whether a future self <em>fits</em>. It isn’t fantasy; it’s psychologically plausible given your traits and direction.</p>
+<hr>
+</section>
+<section id="a-day-in-your-life-five-years-from-now" class="level2">
+<h2 class="anchored" data-anchor-id="a-day-in-your-life-five-years-from-now"><strong>A Day in Your Life — Five Years From Now</strong></h2>
+<section id="morning" class="level3">
+<h3 class="anchored" data-anchor-id="morning"><strong>Morning</strong></h3>
+<p>You wake up without an alarm.</p>
+<p>Not because you’re wealthy beyond concern—but because your work has shifted to something <strong>project-based and flexible</strong>, and you’ve learned your natural rhythm. Light filters in through linen curtains. The room is quiet in a way that feels <em>intentional</em>, not empty.</p>
+<p>There’s one small habit you don’t even register anymore: before reaching for your phone, you sit up and stretch your shoulders and neck. This started years earlier as physical care, but it became psychological—a signal to yourself that the day belongs to you.</p>
+<p>Your apartment isn’t large, but it’s thoughtfully arranged:</p>
+<ul>
+<li>Fewer things, better chosen</li>
+<li>A plant you’ve somehow kept alive for years</li>
+<li>Books stacked not for display, but because you reread them</li>
+</ul>
+<p>You make coffee the same way every morning. You used to think routines would trap you. Now you know they <strong>free your attention</strong>.</p>
+<hr>
+</section>
+<section id="late-morning" class="level3">
+<h3 class="anchored" data-anchor-id="late-morning"><strong>Late Morning</strong></h3>
+<p>You work from a desk near a window. Sometimes you go out to a café—not for productivity theater, but because you enjoy being around quiet, parallel lives.</p>
+<p>Your work brings you money, but more importantly:</p>
+<ul>
+<li>It uses your ability to think clearly</li>
+<li>It rewards precision and creativity</li>
+<li>It doesn’t drain you socially</li>
+</ul>
+<p>You’ve learned something subtle: you no longer over-prepare. You trust yourself to figure things out <em>in motion</em>.</p>
+<p>This is a habit you didn’t anticipate.</p>
+<hr>
+</section>
+<section id="afternoon" class="level3">
+<h3 class="anchored" data-anchor-id="afternoon"><strong>Afternoon</strong></h3>
+<p>You take a walk without headphones.</p>
+<p>This was once unthinkable—you used to fill every moment with input. Now you enjoy letting your mind wander. This is when you do your best thinking, even though you don’t label it as such.</p>
+<p>You stop by a familiar place—a small shop, a studio, a café—where the owner knows your face if not your name. That matters to you more than you expected.</p>
+<p>Your environment is:</p>
+<ul>
+<li>Walkable</li>
+<li>Culturally layered</li>
+<li>A place where you feel both anonymous and anchored</li>
+</ul>
+<p>You never thought that combination would matter so much.</p>
+<hr>
+</section>
+<section id="evening" class="level3">
+<h3 class="anchored" data-anchor-id="evening"><strong>Evening</strong></h3>
+<p>You meet friends—not a big group, but 2 or 3 people you genuinely like.</p>
+<p>They are different from the people you used to gravitate toward:</p>
+<ul>
+<li>Less performative</li>
+<li>More curious</li>
+<li>Comfortable with pauses in conversation</li>
+</ul>
+<p>One friend has a very different background from you. Another is deeply creative. None of them make you feel like you have to prove anything.</p>
+<p>You laugh easily now. That’s new.</p>
+<p>Not louder—just more freely.</p>
+<hr>
+</section>
+<section id="night" class="level3">
+<h3 class="anchored" data-anchor-id="night"><strong>Night</strong></h3>
+<p>Back home, you tidy without rushing. You prepare for tomorrow loosely—not obsessively.</p>
+<p>There’s a quiet sense of continuity in your life. You’re still ambitious, still curious, still emotionally deep—but no longer restless.</p>
+<p>Before sleeping, you check your calendar—not to stress, but to orient yourself. You like knowing what’s coming. You no longer confuse structure with limitation.</p>
+<p>As you turn off the light, there’s a feeling you rarely name:</p>
+<blockquote class="blockquote">
+<p><em>I’m not waiting for my life to start.</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="what-you-dont-think-about-anymore" class="level3">
+<h3 class="anchored" data-anchor-id="what-you-dont-think-about-anymore"><strong>What You Don’t Think About Anymore</strong></h3>
+<ul>
+<li>Whether you’re “behind”</li>
+<li>Whether your interests make sense to others</li>
+<li>Whether you’re allowed to want what you want</li>
+</ul>
+<p>Those questions used to take up space.</p>
+<p>Now they don’t.</p>
+<hr>
+<p>If you want, I can:</p>
+<ul>
+<li>Contrast this with the version of life that <em>wouldn’t</em> suit you</li>
+<li>Identify which habits begin <strong>this year</strong>, not five years from now</li>
+<li>Or write the same day from an outside observer’s perspective</li>
+</ul>
+</section>
+<section id="thoughts" class="level3">
+<h3 class="anchored" data-anchor-id="thoughts">Thoughts</h3>
+<p>Again, wow. Most of what ChatGPT writes about me I would say is true to who I am and how I want to live my life. I’m impressed that it was able to find out so much about me just through chats.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/emily8354\.github\.io\/comm4190_F25_Using_LLMs_Blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
