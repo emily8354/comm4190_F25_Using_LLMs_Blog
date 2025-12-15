@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Emily">
+<meta name="dcterms.date" content="2025-12-14">
+<meta name="description" content="Using LLM to plan my trip to Tokyo">
+
+<title>Tokyo! – Emily Lo’s Explorations with LLMs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-81161df70946103be4ff68a34233701c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Emily Lo’s Explorations with LLMs</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/emily8354"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Tokyo!</h1>
+                  <div>
+        <div class="description">
+          Using LLM to plan my trip to Tokyo
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">Travel</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Emily </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 14, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="intro" class="level3">
+<h3 class="anchored" data-anchor-id="intro">Intro</h3>
+<p>I am visiting Tokyo for around a week this winter break. I have been here before a few times, so I want to see what suggestions ChatGPT-5.1 can make for my trip. I also have never been at this time around Christmas, so I want to see if there is anything special to do. I want to get specific recommendations from ChatGPT like certain restaurants, shops, etc.</p>
+<p><img src="tokyo_files/figure-html/ac012893-2175-4343-bef6-eb353537dc66-1-15d6b771-c42a-4d9a-9773-8d1e582d41ed.jpg" class="img-fluid"></p>
+<p><mark style="background-color: lightblue; padding: 10px; display: block;"> PROMPT: I am visiting Tokyo for a week from 12/15-12/22. Help me think of places to eat, shop, things to do etc. I have been here a few times before, but never at this time. I would like to know if there is specific Christmas things to do too. I am staying in Omotesando. </mark></p>
+<p>Here’s a <strong>customized Tokyo winter/Christmas travel guide</strong> for your trip from <strong>Dec 15–22, 2025</strong> based out of <strong>Omotesando</strong> — including <strong>food, shopping, seasonal events, winter illuminations</strong>, and fun activities!</p>
+<hr>
+</section>
+<section id="christmas-winter-specific-events-in-tokyo-mid-dec" class="level2">
+<h2 class="anchored" data-anchor-id="christmas-winter-specific-events-in-tokyo-mid-dec">🎄 <strong>Christmas &amp; Winter-Specific Events in Tokyo (Mid-Dec)</strong></h2>
+<section id="illuminations-free-iconic" class="level3">
+<h3 class="anchored" data-anchor-id="illuminations-free-iconic">🌟 Illuminations (Free &amp; Iconic)</h3>
+<p>✨ <strong>Omotesando Illuminations</strong> Walk down the <strong>zelkova-lined avenue</strong> for festive lights — beautiful and right near you. (<a href="https://www.japan-guide.com/e/e2303.html?utm_source=chatgpt.com" title="2025/2026 Winter Illuminations in Tokyo">Japan Guide</a>)</p>
+<p>✨ <strong>OMOHARA Christmas Illumination</strong> On the <strong>rooftop of Tokyu Plaza Omotesando Harajuku</strong>, a cozy illuminated “forest” with festive décor – perfect early evening stroll + pics. (<a href="https://jw-webmagazine.com/tips/tokyo-winter-illumination-guide/?utm_source=chatgpt.com" title="Tokyo Winter Illumination Guide 2025-2026 - Japan Web Magazine">Japan Web Magazine</a>)</p>
+<p>✨ <strong>Shibuya “Blue Cave” (Ao no Dokutsu)</strong> A dazzling tunnel of blue lights near Shibuya – very popular for night walks and photos. (<a href="https://tokyoapartmentinc.com/foreigners/topics/202512011986.html?utm_source=chatgpt.com" title="Experience Christmas in Japan | Foreigners Tokyo">TOKYO APARTMENT INC.</a>)</p>
+<p>✨ <strong>Marunouchi Illumination</strong> Trees along Marunouchi near Tokyo Station glow with champagne-gold lights — great with dinner plans. (<a href="https://welcometojapan.jp/archives/3093?utm_source=chatgpt.com" title="Enjoying the December Christmas season, the end of the year, New Year’s Eve, and the New Year in Tokyo 2025 | Welcome To TOKYO Japan">Welcome To TOKYO Japan</a>)</p>
+<p>✨ <strong>Roppongi Midtown / Tokyo Midtown Christmas</strong> Galaxy-like LED displays + festive decorations that stretch across the area. (<a href="https://welcometojapan.jp/archives/3093?utm_source=chatgpt.com" title="Enjoying the December Christmas season, the end of the year, New Year’s Eve, and the New Year in Tokyo 2025 | Welcome To TOKYO Japan">Welcome To TOKYO Japan</a>)</p>
+<p>✨ <strong>Caretta Shiodome Illumination</strong> Light shows synced to music next to Shimbashi. (<a href="https://www.pelago.com/ko/articles/tokyo-christmas-illumination-guide/?utm_source=chatgpt.com" title="When and Where to See Tokyo’s Best Christmas Lights in 2025">Pelago</a>)</p>
+<p>✨ <strong>Tokyo Dome City Winter Illumination</strong> Huge glowing display at the amusement park near Suidobashi — especially fun in the evening. (<a href="https://www.gltjp.com/en/article/item/20468/?utm_source=chatgpt.com" title="11 Buzz-Worthy Illuminations to Brighten Up the Tokyo Winter | GOOD LUCK TRIP">好運日本行（GOOD LUCK TRIP）</a>)</p>
+<hr>
+</section>
+<section id="christmas-markets-festive-spots" class="level3">
+<h3 class="anchored" data-anchor-id="christmas-markets-festive-spots">🎁 Christmas Markets &amp; Festive Spots</h3>
+<p>🇩🇪 <strong>ROPPONGI HILLS Christmas Market</strong> – German-style market with mulled drinks, sausages, ornaments.</p>
+<p>🇯🇵 <strong>東京クリスマスマーケット2025</strong> – Central Tokyo Christmas market event (multiple venues/editions around the city).</p>
+<p>🇯🇵 <strong>AZABUDAI HILLS Christmas Market</strong> – Smaller but easy-to-reach market near Kamiyacho.</p>
+<p>🛍️ <strong>Christmas Market near Meiji Jingu / Shiba Park</strong> – lively European-inspired booths and seasonal food (usually until Dec 25). (<a href="https://www.reddit.com//r/TokyoTravel/comments/1p733om/any_fun_events_happening_btw_dec2227/?utm_source=chatgpt.com" title="Any fun events happening btw dec22-27">Reddit</a>)</p>
+<p>⭐ <strong>Yokohama Red Brick Christmas Market (day trip)</strong> – the classic German Christmas market in Yokohama; fun if you want something bigger. (<a href="https://en.wikipedia.org/wiki/Yokohama_Red_Brick_Warehouse?utm_source=chatgpt.com" title="Yokohama Red Brick Warehouse">Wikipedia</a>)</p>
+<p>💡 <strong>Tokyo Christmas/holiday markets usually end around Dec 25</strong>, though many winter illuminations continue into January/February. (<a href="https://www.reddit.com//r/JapanTravelTips/comments/1pej9ag/will_tokyo_be_christmasless_right_after_the_25th/?utm_source=chatgpt.com" title="Will Tokyo be Christmas-less right after the 25th?">Reddit</a>)</p>
+<hr>
+</section>
+</section>
+<section id="great-places-to-eat-omotesando-harajuku" class="level2">
+<h2 class="anchored" data-anchor-id="great-places-to-eat-omotesando-harajuku">🍽️ <strong>Great Places to Eat (Omotesando / Harajuku)</strong></h2>
+<section id="local-favorites-casual-eats" class="level3">
+<h3 class="anchored" data-anchor-id="local-favorites-casual-eats">🍣 <strong>Local Favorites &amp; Casual Eats</strong></h3>
+<ul>
+<li><strong>Roast Beef Ohno Harajuku Branch</strong> – insanely popular roast beef bowls (budget-friendly).</li>
+<li><strong>Gyukatsu Kyoto Katsugyu Harajuku</strong> – juicy gyukatsu (fried beef cutlets).</li>
+<li><strong>Gyukatsu Motomura Harajuku Branch</strong> – another top-rated gyukatsu spot.</li>
+<li><strong>Tonkatsu Maisen Aoyama</strong> – Tokyo tonkatsu classic.</li>
+<li><strong>Kaiten Sushi Ginza Onodera HONTEN</strong> – conveyor belt sushi for fun dinner.</li>
+</ul>
+</section>
+<section id="comfort-brunch" class="level3">
+<h3 class="anchored" data-anchor-id="comfort-brunch">🍜 <strong>Comfort &amp; Brunch</strong></h3>
+<ul>
+<li><strong>Brown Rice Tokyo Omotesando</strong> – healthy Japanese lunch/brunch.</li>
+<li><strong>Juan Bowl &amp; Tea Tokyo</strong> – cozy bowls &amp; tea.</li>
+<li><strong>bills Omotesando</strong> – popular Aussie brunch spot with views.</li>
+</ul>
+</section>
+<section id="special-fine-dining" class="level3">
+<h3 class="anchored" data-anchor-id="special-fine-dining">🍷 <strong>Special / Fine Dining</strong></h3>
+<ul>
+<li><strong>Omotesando Ukai Tei</strong> – top teppanyaki experience (perfect special night).</li>
+<li><strong>CENSU TOKYO</strong> – refined Japanese kaiseki tasting.</li>
+<li><strong>Restaurant Hyene</strong> – French bistro style.</li>
+<li><strong>JULIA</strong> &amp; <strong>Noda</strong> – highly-rated reservations worth checking.</li>
+</ul>
+</section>
+<section id="winter-warmers" class="level3">
+<h3 class="anchored" data-anchor-id="winter-warmers">🥘 Winter Warmers</h3>
+<ul>
+<li><strong>Wagyu beef Shabu‑Shabu THE SLICE OMOTESANDO</strong> – warm shabu-shabu, great for cold nights.</li>
+<li><strong>Wagyu (Halal) Steak HamBurger &amp; Ramen (5W‑Tokyo 1962)</strong> – unique steak/ramen fusion (excellent reviews).</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="stylish-shopping-steps-from-your-hotel" class="level2">
+<h2 class="anchored" data-anchor-id="stylish-shopping-steps-from-your-hotel">🛍️ <strong>Stylish Shopping (Steps from Your Hotel)</strong></h2>
+<p>🎁 <strong>Omotesando Hills</strong> – flagship fashion + seasonal pop-ups. 🎁 <strong>Cat Street (Harajuku)</strong> – quirky boutiques &amp; cafes. 🎁 <strong>Takeshita Street</strong> – funky Harajuku fashion &amp; sweets. 🎁 <strong>Ginza</strong> – luxury fashion, flagship stores, and Christmas window displays. (<a href="https://welcometojapan.jp/archives/3093?utm_source=chatgpt.com" title="Enjoying the December Christmas season, the end of the year, New Year’s Eve, and the New Year in Tokyo 2025 | Welcome To TOKYO Japan">Welcome To TOKYO Japan</a>) 🎁 <strong>Shibuya Scramble Square &amp; Shibuya Parco</strong> – big shopping + viewpoints.</p>
+<hr>
+</section>
+<section id="activities-experience-ideas" class="level2">
+<h2 class="anchored" data-anchor-id="activities-experience-ideas">📅 <strong>Activities &amp; Experience Ideas</strong></h2>
+<section id="culture-views" class="level3">
+<h3 class="anchored" data-anchor-id="culture-views">🎨 Culture &amp; Views</h3>
+<ul>
+<li><strong>Meiji Jingu Shrine</strong> – peaceful winter visit (beautiful in crisp air).</li>
+<li><strong>Tokyo Tower / Skytree</strong> – night views + winter lighting.</li>
+<li><strong>TeamLab Planets / Borderless</strong> – immersive digital art.</li>
+</ul>
+</section>
+<section id="entertainment" class="level3">
+<h3 class="anchored" data-anchor-id="entertainment">🎭 Entertainment</h3>
+<ul>
+<li><strong>Disney Christmas at Tokyo Disneyland / DisneySea</strong> – special Christmas parade &amp; shows (if you want a day trip). (<a href="https://en.wikipedia.org/wiki/Disney_Gifts_of_Christmas?utm_source=chatgpt.com" title="Disney Gifts of Christmas">Wikipedia</a>)</li>
+<li><strong>Kabukicho &amp; Golden Gai</strong> (Shinjuku) – fun evening bar crawl &amp; nightlife.</li>
+</ul>
+</section>
+<section id="cozy-winter-spots" class="level3">
+<h3 class="anchored" data-anchor-id="cozy-winter-spots">☕ Cozy Winter Spots</h3>
+<ul>
+<li>Warm cafés with seasonal sweets (e.g., Mont-Blanc, strawberry shortcake).</li>
+<li>Hot spring spa like <strong>Oedo Onsen Monogatari (Odaiba)</strong> for winter soak.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="tips-for-christmas-in-japan" class="level2">
+<h2 class="anchored" data-anchor-id="tips-for-christmas-in-japan">🧠 <strong>Tips for Christmas in Japan</strong></h2>
+<ul>
+<li>Christmas Eve (Dec 24) is <strong>very popular for reservations</strong> (especially dinners).</li>
+<li>Many <em>Christmas markets</em> end on <strong>Dec 25</strong> — but <strong>illuminations continue</strong> into January/February. (<a href="https://www.reddit.com//r/JapanTravelTips/comments/1pej9ag/will_tokyo_be_christmasless_right_after_the_25th/?utm_source=chatgpt.com" title="Will Tokyo be Christmas-less right after the 25th?">Reddit</a>)</li>
+<li>New Year celebrations &amp; shrine visits (hatsumode) begin around <strong>Dec 31 – Jan 1</strong> if you stay late.</li>
+</ul>
+<hr>
+<p>If you’d like, I can also put together sample daily itineraries (with map links and travel times) for your exact travel week!</p>
+<p><mark style="background-color: lightblue; padding: 10px; display: block;"> PROMPT: Yes can you create an itinerary for different areas each day. For shopping can you also recommend certain Japanese brands or brands that would be cheaper in Japan that a girl in her 20s might like </mark></p>
+<p>Amazing timing — Tokyo in mid-December is <em>perfect</em> for walking, food, and illuminations ✨ Below is a <strong>7-day itinerary by area</strong>, designed so each day feels cohesive and not rushed, starting from <strong>Omotesando</strong>. I’ll also weave in <strong>shopping stops + specific Japanese brands</strong> (especially ones that are cheaper or easier to buy in Japan and popular with women in their 20s).</p>
+<hr>
+</section>
+<section id="tokyo-7-day-area-by-area-itinerary-dec-1522" class="level1">
+<h1>🗓️ Tokyo 7-Day Area-by-Area Itinerary (Dec 15–22)</h1>
+<section id="day-1-omotesando-harajuku-easy-arrival-day" class="level2">
+<h2 class="anchored" data-anchor-id="day-1-omotesando-harajuku-easy-arrival-day"><strong>Day 1: Omotesando → Harajuku (Easy Arrival Day)</strong></h2>
+<p><em>Perfect since you’re staying here</em></p>
+<section id="morning-afternoon" class="level3">
+<h3 class="anchored" data-anchor-id="morning-afternoon">Morning / Afternoon</h3>
+<ul>
+<li><p>Walk <strong>Omotesando Avenue</strong> (flagship architecture is part of the fun)</p></li>
+<li><p><strong>Omotesando Hills</strong> (stylish, not overwhelming)</p></li>
+<li><p>Coffee stop:</p>
+<ul>
+<li><strong>Koffee Mameya</strong> (specialty, very Tokyo)</li>
+<li><strong>Blue Bottle Aoyama</strong></li>
+</ul></li>
+</ul>
+</section>
+<section id="shopping-omotesando-harajuku" class="level3">
+<h3 class="anchored" data-anchor-id="shopping-omotesando-harajuku">Shopping (Omotesando / Harajuku)</h3>
+<p><strong>Japanese brands to look for:</strong></p>
+<ul>
+<li><strong>Beams / United Arrows / Journal Standard</strong> – higher quality basics &amp; trend pieces (often cheaper than abroad)</li>
+<li><strong>Snidel / Lily Brown / FRAY I.D</strong> – feminine, trendy, very popular with Japanese women in their 20s</li>
+<li><strong>Maison Kitsuné Japan exclusives</strong></li>
+<li><strong>Comme des Garçons Play</strong> (Japan pricing + exclusives)</li>
+<li><strong>Lowrys Farm / Earth Music &amp; Ecology</strong> – affordable everyday pieces</li>
+<li><strong>MUJI flagship</strong> (best prices + Japan-only items)</li>
+</ul>
+</section>
+<section id="evening" class="level3">
+<h3 class="anchored" data-anchor-id="evening">Evening</h3>
+<ul>
+<li><strong>Meiji Jingu</strong> (quiet, winter air is beautiful)</li>
+<li>Dinner: <strong>Tonkatsu Maisen Aoyama</strong> or <strong>Gyukatsu Motomura</strong></li>
+<li>Walk <strong>Omotesando Christmas Illumination</strong> 🎄✨</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="day-2-shibuya-trendy-youth-culture" class="level2">
+<h2 class="anchored" data-anchor-id="day-2-shibuya-trendy-youth-culture"><strong>Day 2: Shibuya (Trendy + Youth Culture)</strong></h2>
+<section id="morning" class="level3">
+<h3 class="anchored" data-anchor-id="morning">Morning</h3>
+<ul>
+<li><strong>Shibuya Sky</strong> (book ahead — clear winter views!)</li>
+<li>Shibuya Crossing + Hachiko</li>
+</ul>
+</section>
+<section id="shopping-focus" class="level3">
+<h3 class="anchored" data-anchor-id="shopping-focus">Shopping Focus</h3>
+<p><strong>Must-visit buildings:</strong></p>
+<ul>
+<li><strong>Shibuya Parco</strong> (fashion + Japan exclusives)</li>
+<li><strong>Shibuya Scramble Square</strong></li>
+<li><strong>Shibuya 109</strong> (trend forecasting in real time)</li>
+</ul>
+<p><strong>Brands girls in their 20s love:</strong></p>
+<ul>
+<li><strong>Moussy / SLY / EMODA / Ungrid</strong></li>
+<li><strong>Heather</strong></li>
+<li><strong>Zara Japan exclusives</strong></li>
+<li><strong>Nike Japan / Adidas Japan</strong> (exclusive colorways)</li>
+<li><strong>Porter Yoshida</strong> bags (much cheaper in Japan)</li>
+</ul>
+</section>
+<section id="evening-1" class="level3">
+<h3 class="anchored" data-anchor-id="evening-1">Evening</h3>
+<ul>
+<li>Dinner: <strong>Uobei Sushi</strong>, <strong>Afuri Ramen</strong></li>
+<li>Walk to <strong>Shibuya Blue Cave illumination</strong> (if running that year)</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="day-3-daikanyama-nakameguro-chic-calm" class="level2">
+<h2 class="anchored" data-anchor-id="day-3-daikanyama-nakameguro-chic-calm"><strong>Day 3: Daikanyama → Nakameguro (Chic &amp; Calm)</strong></h2>
+<p><em>Great contrast to Shibuya</em></p>
+<section id="morning-1" class="level3">
+<h3 class="anchored" data-anchor-id="morning-1">Morning</h3>
+<ul>
+<li><strong>Daikanyama T-Site (蔦屋書店)</strong> – coffee, books, design</li>
+<li>Boutique hopping</li>
+</ul>
+</section>
+<section id="shopping-highlights" class="level3">
+<h3 class="anchored" data-anchor-id="shopping-highlights">Shopping Highlights</h3>
+<ul>
+<li><strong>Nanushka Japan</strong></li>
+<li><strong>Clane</strong></li>
+<li><strong>Ameri Vintage</strong></li>
+<li><strong>Todayful</strong></li>
+<li><strong>Second-hand shops</strong> (Japan has the best vintage quality)</li>
+</ul>
+</section>
+<section id="afternoon" class="level3">
+<h3 class="anchored" data-anchor-id="afternoon">Afternoon</h3>
+<ul>
+<li>Walk toward <strong>Nakameguro</strong></li>
+<li>Café hopping along the river</li>
+</ul>
+</section>
+<section id="evening-2" class="level3">
+<h3 class="anchored" data-anchor-id="evening-2">Evening</h3>
+<ul>
+<li>Dinner: <strong>Izakaya or wine bar in Nakameguro</strong></li>
+<li>Cozy, romantic winter vibe</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="day-4-ginza-tokyo-station-polished-christmas-windows" class="level2">
+<h2 class="anchored" data-anchor-id="day-4-ginza-tokyo-station-polished-christmas-windows"><strong>Day 4: Ginza → Tokyo Station (Polished + Christmas Windows)</strong></h2>
+<section id="morning-2" class="level3">
+<h3 class="anchored" data-anchor-id="morning-2">Morning</h3>
+<ul>
+<li><strong>Uniqlo Ginza Flagship</strong> (Japan pricing + heattech!)</li>
+<li><strong>Muji Ginza</strong></li>
+</ul>
+</section>
+<section id="shopping-ginza-is-great-for-gifts" class="level3">
+<h3 class="anchored" data-anchor-id="shopping-ginza-is-great-for-gifts">Shopping (Ginza is GREAT for gifts)</h3>
+<p><strong>Japanese brands:</strong></p>
+<ul>
+<li><strong>A.P.C. Japan</strong></li>
+<li><strong>Issey Miyake / Pleats Please</strong> (significantly cheaper)</li>
+<li><strong>Onitsuka Tiger</strong></li>
+<li><strong>Shiseido / SK-II / Japanese beauty</strong> (duty-free!)</li>
+</ul>
+</section>
+<section id="afternoon-1" class="level3">
+<h3 class="anchored" data-anchor-id="afternoon-1">Afternoon</h3>
+<ul>
+<li><strong>Tokyo Station Character Street</strong> (cute souvenirs)</li>
+<li><strong>Marunouchi Christmas Illumination</strong> 🎄</li>
+</ul>
+</section>
+<section id="evening-3" class="level3">
+<h3 class="anchored" data-anchor-id="evening-3">Evening</h3>
+<ul>
+<li>Dinner in Marunouchi (Italian, French, or sushi)</li>
+<li>Dessert at <strong>KitKat Chocolatory</strong> (Japan-only flavors!)</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="day-5-asakusa-skytree-old-tokyo-night-views" class="level2">
+<h2 class="anchored" data-anchor-id="day-5-asakusa-skytree-old-tokyo-night-views"><strong>Day 5: Asakusa → Skytree (Old Tokyo + Night Views)</strong></h2>
+<section id="morning-3" class="level3">
+<h3 class="anchored" data-anchor-id="morning-3">Morning</h3>
+<ul>
+<li><strong>Senso-ji Temple</strong></li>
+<li>Nakamise Street snacks (melonpan, ningyo-yaki)</li>
+</ul>
+</section>
+<section id="shopping" class="level3">
+<h3 class="anchored" data-anchor-id="shopping">Shopping</h3>
+<ul>
+<li>Traditional items (chopsticks, ceramics)</li>
+<li>Cute Japanese stationery &amp; souvenirs</li>
+</ul>
+</section>
+<section id="afternoon-2" class="level3">
+<h3 class="anchored" data-anchor-id="afternoon-2">Afternoon</h3>
+<ul>
+<li>Head to <strong>Tokyo Skytree</strong></li>
+<li>Shopping at Solamachi</li>
+</ul>
+</section>
+<section id="evening-4" class="level3">
+<h3 class="anchored" data-anchor-id="evening-4">Evening</h3>
+<ul>
+<li>Skytree observation deck at night</li>
+<li>Warm dinner nearby (shabu-shabu or sukiyaki)</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="day-6-roppongi-art-christmas-market" class="level2">
+<h2 class="anchored" data-anchor-id="day-6-roppongi-art-christmas-market"><strong>Day 6: Roppongi (Art + Christmas Market)</strong></h2>
+<section id="morning-4" class="level3">
+<h3 class="anchored" data-anchor-id="morning-4">Morning</h3>
+<ul>
+<li><strong>teamLab Borderless / Planets</strong> (book ahead)</li>
+<li><strong>Mori Art Museum</strong></li>
+</ul>
+</section>
+<section id="afternoon-3" class="level3">
+<h3 class="anchored" data-anchor-id="afternoon-3">Afternoon</h3>
+<ul>
+<li><strong>Roppongi Hills Christmas Market</strong> 🎄</li>
+<li>Browse boutiques</li>
+</ul>
+</section>
+<section id="shopping-picks" class="level3">
+<h3 class="anchored" data-anchor-id="shopping-picks">Shopping Picks</h3>
+<ul>
+<li><strong>Beauty brands</strong> (Shu Uemura, THREE, RMK)</li>
+<li><strong>Japanese designer accessories</strong></li>
+</ul>
+</section>
+<section id="evening-5" class="level3">
+<h3 class="anchored" data-anchor-id="evening-5">Evening</h3>
+<ul>
+<li>Dinner with a view</li>
+<li>Walk through <strong>Tokyo Midtown illumination</strong></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="day-7-free-choice-day-trip" class="level2">
+<h2 class="anchored" data-anchor-id="day-7-free-choice-day-trip"><strong>Day 7: Free Choice / Day Trip</strong></h2>
+<p>Pick based on energy:</p>
+<section id="option-a-shimokitazawa" class="level3">
+<h3 class="anchored" data-anchor-id="option-a-shimokitazawa">Option A: <strong>Shimokitazawa</strong></h3>
+<ul>
+<li>Thrift shopping heaven</li>
+<li>Affordable vintage, indie brands</li>
+</ul>
+</section>
+<section id="option-b-yokohama-christmas-market" class="level3">
+<h3 class="anchored" data-anchor-id="option-b-yokohama-christmas-market">Option B: <strong>Yokohama Christmas Market</strong></h3>
+<ul>
+<li>Bigger European-style market</li>
+<li>Easy day trip</li>
+</ul>
+</section>
+<section id="option-c-disneysea-christmas" class="level3">
+<h3 class="anchored" data-anchor-id="option-c-disneysea-christmas">Option C: <strong>DisneySea Christmas</strong></h3>
+<ul>
+<li>Only in Japan, very festive 🎄</li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+<section id="japanese-brands-worth-buying-quick-cheat-sheet" class="level1">
+<h1>🛍️ Japanese Brands Worth Buying (Quick Cheat Sheet)</h1>
+<section id="clothing" class="level3">
+<h3 class="anchored" data-anchor-id="clothing">👗 Clothing</h3>
+<ul>
+<li>Snidel, Lily Brown, FRAY I.D</li>
+<li>Moussy, SLY, EMODA</li>
+<li>Beams, United Arrows</li>
+<li>Clane, Ameri Vintage, Todayful</li>
+</ul>
+</section>
+<section id="bags-accessories" class="level3">
+<h3 class="anchored" data-anchor-id="bags-accessories">👜 Bags &amp; Accessories</h3>
+<ul>
+<li>Porter Yoshida</li>
+<li>Samantha Thavasa</li>
+<li>Japanese leather brands (much cheaper locally)</li>
+</ul>
+</section>
+<section id="beauty" class="level3">
+<h3 class="anchored" data-anchor-id="beauty">💄 Beauty</h3>
+<ul>
+<li>Shiseido, SK-II, Shu Uemura</li>
+<li>Canmake, Cezanne (cheap &amp; great)</li>
+<li>Japanese sunscreen &amp; skincare (stock up!)</li>
+</ul>
+<hr>
+<p>If you want, I can:</p>
+<ul>
+<li>Turn this into a <strong>day-by-day Google Maps route</strong></li>
+<li>Suggest <strong>specific souvenir gift ideas</strong></li>
+<li>Create a <strong>shopping-focused version</strong></li>
+<li>Or tailor it based on <em>budget vs splurge</em> preferences</li>
+</ul>
+<p>Just tell me 💕</p>
+</section>
+<section id="thoughts" class="level3">
+<h3 class="anchored" data-anchor-id="thoughts">Thoughts</h3>
+<p>I am honestly really impressed with these suggestions and the itinerary. On the ChatGPT interface, there was a map of the locations it highlighted that you could see, which I really liked so you can visualize how far away these places are. I like how it was specific with certain restaurants or clothing stores and will definitely be using this on my trip!</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/emily8354\.github\.io\/comm4190_F25_Using_LLMs_Blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
