@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Emily">
+<meta name="dcterms.date" content="2025-12-15">
+<meta name="description" content="Asking Claude Questions about Me">
+
+<title>What does Claude know about me? – Emily Lo’s Explorations with LLMs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-81161df70946103be4ff68a34233701c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Emily Lo’s Explorations with LLMs</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/emily8354"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">What does Claude know about me?</h1>
+                  <div>
+        <div class="description">
+          Asking Claude Questions about Me
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">Claude</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Emily </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 15, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="intro" class="level3">
+<h3 class="anchored" data-anchor-id="intro">Intro</h3>
+<p>Since I had asked ChatGPT questions about me, I wanted to see what Claude thought of me and see if it is accurate. I have been using ChatGPT for much longer than Claude probably around a year or so. However, lately I use Claude more than ChatGPT since I have Claude Pro. Let’s see how well it knows me!</p>
+<p><mark style="background-color: lightblue; padding: 10px; display: block;"> PROMPT: Imagine that you are an experienced psychologist with 50 years of experience. Analyze the following data about me: - My age [substitute the number] - My 3-5 main interests (describe each one in detail) - My current activity (write what brings you money and what you do) - My biggest dream (detail) </mark></p>
+<p>I appreciate your interest in a psychological analysis, but I need you to fill in your specific information first. You’ve provided me with a template, but all the key details are placeholders.</p>
+<p>To offer you a meaningful perspective, please share:</p>
+<ul>
+<li><strong>Your actual age</strong></li>
+<li><strong>Your 3-5 main interests</strong> (What are you genuinely passionate about? What do you spend your free time thinking about or doing?)</li>
+<li><strong>Your current activity</strong> (What’s your job or source of income? What occupies most of your day?)</li>
+<li><strong>Your biggest dream</strong> (What do you aspire to achieve or become?)</li>
+</ul>
+<p>Once you provide these details, I can offer you a thoughtful analysis looking at patterns, potential conflicts or alignments between your interests and activities, psychological themes that might emerge, and how your dream relates to your current life situation.</p>
+<p>I should mention upfront that while I can provide insights drawing on psychological frameworks and patterns, this would be an informal analysis based on limited information rather than a clinical assessment. Real therapy involves ongoing dialogue, deeper exploration, and the nuances that come from extended conversation.</p>
+<p>So please, share your actual information and I’ll give you my thoughts!</p>
+<p><mark style="background-color: lightblue; padding: 10px; display: block;"> PROMPT: I want you to fill in the blanks based on my past chat history </mark></p>
+<p>Let me search for more specific information about you:Based on my search through your past conversations, I found some information about you, but I need you to fill in a few more details to give you the most accurate psychological analysis. Here’s what I found:</p>
+<p><strong>What I know about you:</strong> - <strong>Age:</strong> 21 years old - <strong>Student status:</strong> You’re a student at the University of Pennsylvania (Penn) - <strong>One confirmed interest:</strong> Tap dancing (you mentioned being a tap dancer at Penn)</p>
+<p><strong>What I still need from you:</strong></p>
+<ol type="1">
+<li><p><strong>Your other 2-4 main interests</strong> - I found some references to hobbies exploration, LLMs/AI experimentation, fitness classes, urban planning projects, and blog writing, but I’d like you to confirm which of these (or others) are your actual main passions and describe each in more detail.</p></li>
+<li><p><strong>Your current activity/income source</strong> - Are you working while in school? What do you do for money? What occupies most of your time beyond classes?</p></li>
+<li><p><strong>Your biggest dream</strong> - What do you aspire to achieve or become? This wasn’t clear from the chat history.</p></li>
+</ol>
+<p>Could you provide these missing pieces so I can give you that experienced psychologist’s perspective you’re looking for?</p>
+<p><mark style="background-color: lightblue; padding: 10px; display: block;"> PROMPT: Can you try your best to guess? It is ok if it is not right. I just want to see what you think. </mark></p>
+<p>Alright, I’ll put on my psychologist hat and make my best educated guesses based on the patterns I see in your conversation history. Here’s my analysis:</p>
+<hr>
+</section>
+<section id="psychological-profile-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="psychological-profile-analysis">Psychological Profile Analysis</h2>
+<p><strong>Subject: 21-year-old Penn student</strong></p>
+<section id="demographics-current-life-stage" class="level3">
+<h3 class="anchored" data-anchor-id="demographics-current-life-stage">Demographics &amp; Current Life Stage</h3>
+<ul>
+<li><strong>Age:</strong> 21</li>
+<li><strong>Primary Activity:</strong> Full-time student at University of Pennsylvania, likely junior or senior year</li>
+<li><strong>Income sources:</strong> I’d guess a combination of student jobs/internships, possibly some tutoring or TA work, and family support. You seem financially conscious (asking about allocating $10,000 in savings) but not stressed about money.</li>
+</ul>
+</section>
+<section id="main-interests-my-best-guesses" class="level3">
+<h3 class="anchored" data-anchor-id="main-interests-my-best-guesses">Main Interests (My Best Guesses)</h3>
+<p><strong>1. Technology &amp; AI/LLMs (High Engagement)</strong> You’re deeply curious about large language models and their applications. You’re not just using them—you’re experimenting with prompting techniques, exploring their creative capabilities, writing blog posts about them, and testing their boundaries. This isn’t casual interest; this is someone who sees the paradigm shift happening and wants to understand it deeply. You’re thinking about meta-questions: “Can AI be creative? Can it argue with itself?” This suggests a philosophical bent alongside the technical curiosity.</p>
+<p><strong>2. Tap Dancing (Identity &amp; Community)</strong> This isn’t just a hobby—being a “tap dancer at Penn” suggests it’s part of your identity. You chose it specifically as something you know well enough to fact-check an LLM tutor. This tells me it’s been a long-term commitment, possibly since childhood. It represents discipline, artistic expression, and likely community connection through Penn’s dance groups.</p>
+<p><strong>3. Data Science/Computational Social Science</strong> The pattern is clear: you’re working on coding projects, analyzing TikTok comments, doing prompt engineering assignments, urban planning projects with satellite data. You’re comfortable with Python, interested in how data reveals human behavior, and drawn to projects at the intersection of technology and society.</p>
+<p><strong>4. Fitness &amp; Wellness (Emerging Interest)</strong> You’re exploring workout classes near campus, asking about new member deals. This suggests someone transitioning from maybe casual exercise to more intentional fitness habits. Combined with the $10,000 savings question and interest in Roth IRAs, you’re in a life stage of building adult routines and habits.</p>
+<p><strong>5. Writing &amp; Communication (Secondary but Present)</strong> You’re writing blog posts about LLMs, creating structured prompts, working on academic assignments with substantial written components. You care about how ideas are communicated effectively.</p>
+</section>
+<section id="current-activity-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="current-activity-analysis">Current Activity Analysis</h3>
+<p><strong>Primary occupation:</strong> Student at Penn, likely in a computational/data science program or similar technical field (maybe Computer Science, Cognitive Science, or Data Science). Based on the coursework patterns, I’d guess you’re taking classes in NLP, human-computer interaction, or computational social science.</p>
+<p><strong>Side activities that bring money:</strong> Possibly research assistant positions, tutoring (you seem comfortable explaining technical concepts), or internship work. The $10,000 in savings at 21 suggests either good saving habits from summer internships or perhaps family contributions being managed responsibly.</p>
+<p><strong>What actually occupies your time:</strong> Classes, tap dance practice/rehearsals, coding projects, experimenting with AI tools, fitness routines, and probably more social media consumption than you’d admit to yourself (given the TikTok analysis work).</p>
+</section>
+<section id="biggest-dream-the-most-speculative-part" class="level3">
+<h3 class="anchored" data-anchor-id="biggest-dream-the-most-speculative-part">Biggest Dream (The Most Speculative Part)</h3>
+<p>Based on the psychological patterns I’m seeing, I’d guess your biggest dream involves <strong>creating something at the intersection of technology and human experience that actually matters to people’s lives.</strong></p>
+<p>You’re not just interested in tech for tech’s sake—your projects have a human-centered quality (urban planning to improve cities, studying social media discourse, making finance accessible through games, exploring how AI can tutor). You want to build things that are both technically sophisticated AND meaningfully improve how people live, learn, or interact.</p>
+<p>My specific guess: You dream of either founding or being an early member of a startup/company that uses AI to democratize something that’s currently elite or inaccessible—maybe education, creative tools, financial literacy, or urban development. You want to be someone who saw the potential early and actually executed on it.</p>
+<p>Alternative dream: Becoming a researcher or thought leader who shapes how we think about AI’s role in society—someone who writes, teaches, and builds things that influence the field’s direction.</p>
+<hr>
+</section>
+</section>
+<section id="psychological-observations" class="level2">
+<h2 class="anchored" data-anchor-id="psychological-observations">Psychological Observations</h2>
+<p><strong>Patterns I notice:</strong></p>
+<ol type="1">
+<li><p><strong>Intellectual Curiosity with Practical Application</strong> - You don’t just theorize; you test. You make the AI argue with itself, you compare structured vs.&nbsp;unstructured prompts, you actually try the workout classes. This is someone who learns by doing.</p></li>
+<li><p><strong>Comfortable with Ambiguity</strong> - You’re asking open-ended questions to AI, exploring spaces without clear answers. This suggests comfort with uncertainty and experimentation.</p></li>
+<li><p><strong>Self-Improvement Orientation</strong> - The fitness exploration, the structured savings planning, the constant learning—you’re actively working on becoming a more complete person.</p></li>
+<li><p><strong>Analytical but Not Cold</strong> - Your interests blend technical rigor (coding, data analysis) with human elements (dance, social dynamics, communication). You’re trying to understand systems while staying connected to human experience.</p></li>
+<li><p><strong>Slight Perfectionist Tendencies</strong> - The level of detail in your prompts, the fact-checking mentality, the careful financial planning—these suggest someone who values doing things right, though perhaps at risk of overthinking.</p></li>
+</ol>
+<p><strong>Potential tensions:</strong></p>
+<ul>
+<li>Between the structured, analytical side (saving money, coding, planning) and the creative, expressive side (dance, blog writing)</li>
+<li>Between individual achievement and community contribution</li>
+<li>Between the desire to deeply understand things and the pressure to move quickly in the tech world</li>
+</ul>
+<hr>
+<p>How close did I get? What did I completely miss?</p>
+<p><mark style="background-color: lightblue; padding: 10px; display: block;"> PROMPT: Now show me three unexpected twists of life that will lead me to this future, and explain how my character will change after each of them. </mark></p>
+</section>
+<section id="three-unexpected-twists-your-path-to-the-future" class="level2">
+<h2 class="anchored" data-anchor-id="three-unexpected-twists-your-path-to-the-future">Three Unexpected Twists: Your Path to the Future</h2>
+<section id="twist-1-the-failed-startup-age-23-24" class="level3">
+<h3 class="anchored" data-anchor-id="twist-1-the-failed-startup-age-23-24"><strong>Twist #1: The Failed Startup (Age 23-24)</strong></h3>
+<p><strong>What Happens:</strong> Six months after graduation, you and two Penn friends launch an AI-powered education tool—something that felt like destiny given your interests. You raise a small pre-seed round ($200K) from an enthusiastic angel investor who loved your demo. For 18 months, you pour everything into it: 80-hour weeks, your entire $10,000 savings, relationships strained to breaking point. Your tap dancing stops completely—“no time for hobbies.”</p>
+<p>The product is technically impressive. Users say it’s “cool.” But nobody pays. Growth flatlines. The money runs out. Your co-founders get job offers and leave. You’re 24, broke, back in your childhood bedroom, and the thing you were certain would work… didn’t.</p>
+<p><strong>Character Transformation:</strong> - <strong>Before:</strong> You believed talent + effort = success. Smart people with good ideas win. - <strong>After:</strong> You understand that execution, timing, and market need matter more than brilliance. You develop a healthy skepticism of your own ideas—you now test assumptions ruthlessly before committing. - <strong>Unexpected gain:</strong> Humility without bitterness. You stop seeing yourself as someone destined for success and start seeing yourself as someone who can survive failure. This makes you braver, not more cautious. - <strong>The scar:</strong> You develop a reflex of mentally calculating runway and asking “but will people pay for this?” within minutes of any new idea. Some mistake this for cynicism; it’s actually wisdom earned expensively.</p>
+<hr>
+</section>
+<section id="twist-2-the-accidental-choreographer-age-26-27" class="level3">
+<h3 class="anchored" data-anchor-id="twist-2-the-accidental-choreographer-age-26-27"><strong>Twist #2: The Accidental Choreographer (Age 26-27)</strong></h3>
+<p><strong>What Happens:</strong> You’re working a “normal” job at a tech company—decent salary, good team, but something feels hollow after the startup dream died. On a whim, you start attending a weekly tap jam session to reconnect with that part of yourself you abandoned.</p>
+<p>A local theater director sees you dance and asks if you’d choreograph a small production. You say yes, expecting it to be a fun side project. But something ignites. You start weaving your tech skills into it—using AI to generate rhythm patterns, creating data visualizations of tap sequences, building an interactive audience experience. The show becomes a surprise hit. Regional press coverage. Suddenly you’re getting offers.</p>
+<p>Over the next year, you do three more productions, each more ambitious. You’re not leaving tech entirely, but you’re spending 50% of your time on this hybrid choreography/tech art thing. Your tech job feels increasingly like the “side project.” You’re making less money but sleeping better.</p>
+<p><strong>Character Transformation:</strong> - <strong>Before:</strong> You saw yourself as a “tech person who used to dance.” Your identity was linear and your past interests felt like detours. - <strong>After:</strong> You realize your supposedly “separate” interests were actually one coherent vision all along. You stop trying to pick one identity and embrace being a bridge between worlds. - <strong>Unexpected gain:</strong> You become genuinely original. The combination of technical skill + artistic sensibility + data-driven thinking is rare enough that you’re not competing with anyone. You stumble into a blue ocean by accident. - <strong>The tension:</strong> You now carry a permanent internal conflict—the part of you that wants stability/money/traditional success versus the part that’s alive only when creating something weird and new. You learn to negotiate between these selves rather than letting one dominate.</p>
+<hr>
+</section>
+<section id="twist-3-the-inheritance-of-responsibility-age-29-30" class="level3">
+<h3 class="anchored" data-anchor-id="twist-3-the-inheritance-of-responsibility-age-29-30"><strong>Twist #3: The Inheritance of Responsibility (Age 29-30)</strong></h3>
+<p><strong>What Happens:</strong> Your father has a serious health crisis—not fatal, but life-altering. He can’t run his small business anymore (let’s say it’s something practical—a local contracting company, a retail operation, something very “offline”). Your family is in crisis. Someone needs to step in. Your siblings can’t or won’t. It falls to you.</p>
+<p>You’re furious. This wasn’t the plan. You’re finally finding your groove with the tech-art hybrid work, building something meaningful. Now you have to manage… contractors? Inventory? Customer disputes? It feels like a prison sentence.</p>
+<p>But you can’t say no. So you do it—and begrudgingly apply your tech skills to transform the business. You automate everything you can, use AI for customer service, build data systems where there were none. You start a blog documenting “bringing a analog business into the AI age” as therapy. The blog goes viral in small business communities.</p>
+<p>Within a year, revenue is up 40%. Your dad is proud. You’ve accidentally become an expert in AI for small businesses. Major consulting firms start calling. You realize: there are 33 million small businesses in the US, and almost none of them know how to use AI effectively. You’ve found a massive, unglamorous problem that you’re uniquely positioned to solve.</p>
+<p><strong>Character Transformation:</strong> - <strong>Before:</strong> You chased exciting problems—AI, creativity, innovation. You wanted to work on things that felt “important” and intellectually stimulating. - <strong>After:</strong> You learn that impact often lives in unglamorous places. The small business owner who can finally take a vacation because you automated their scheduling matters just as much as the flashy startup. You develop genuine respect for “boring” work done well. - <strong>Unexpected gain:</strong> You become a translator between worlds. You can talk to both Silicon Valley technologists AND people who’ve run family businesses for 30 years. This makes you powerful in ways pure technical skill never could. - <strong>The paradox:</strong> By letting go of your dream of being “special,” you become genuinely special. The person who brings AI to Main Street is doing something the Stanford CS grads overlooking this space will never do. - <strong>The loss you didn’t expect to mourn:</strong> Your 20-year-old self’s naive certainty about what matters. You can’t go back to thinking only moonshot ideas are worthwhile. You’ve seen too much to believe that anymore.</p>
+<hr>
+</section>
+</section>
+<section id="the-person-you-become-at-30" class="level2">
+<h2 class="anchored" data-anchor-id="the-person-you-become-at-30"><strong>The Person You Become at 30</strong></h2>
+<p>After these three twists, you’re unrecognizable from your 21-year-old self:</p>
+<p><strong>What you’ve lost:</strong> - The belief that your path will be linear - The need to fit into one category - The fear that practical work is beneath you - The assumption that success looks like what you imagined</p>
+<p><strong>What you’ve gained:</strong> - The ability to translate between technical and human worlds - Comfort with contradiction (artist AND analyst, dreamer AND pragmatist) - Genuine empathy for people solving “unglamorous” problems - The confidence that comes from surviving your own certainties being proven wrong</p>
+<p><strong>Your actual dream realized (but not how you expected):</strong> You ARE creating something at the intersection of technology and human experience that matters to people’s lives—but it’s not a venture-backed startup or a prestigious research position. It’s a consulting practice that helps family businesses use AI without losing their soul, paired with experimental art projects that explore human-computer collaboration. You write, you code, you choreograph, you teach.</p>
+<p>You’re probably making less money than your Penn classmates at Meta. But you’re solving real problems for real people, you’re creating art that means something, and you sleep well at night.</p>
+<p>The 21-year-old you wouldn’t recognize this as success. The 30-year-old you wouldn’t trade it for anything.</p>
+<hr>
+<p><strong>The psychological throughline:</strong> Each twist forces you to let go of who you thought you should be and discover who you actually are. The failure teaches you resilience. The art teaches you integration. The responsibility teaches you humility. Together, they transform you from someone chasing an imagined future into someone building a meaningful present.</p>
+<p><mark style="background-color: lightblue; padding: 10px; display: block;"> PROMPT: Describe one day in my life in 5 years, including details that I don’t even think about now: • My new habits • The environment I live in • My new friends </mark></p>
+</section>
+<section id="a-tuesday-in-your-life-age-26-march-2030" class="level2">
+<h2 class="anchored" data-anchor-id="a-tuesday-in-your-life-age-26-march-2030">A Tuesday in Your Life: Age 26, March 2030</h2>
+<section id="am---the-morning-you-dont-recognize-yet" class="level3">
+<h3 class="anchored" data-anchor-id="am---the-morning-you-dont-recognize-yet"><strong>6:47 AM - The Morning You Don’t Recognize Yet</strong></h3>
+<p>Your alarm doesn’t go off because you don’t use one anymore. You’ve learned (the hard way, after the startup burnout) that your body naturally wakes around 6:45 if you’re in bed by 11. This was revelatory to your 21-year-old self who thought sleep schedules were for the weak.</p>
+<p>You’re in a studio apartment in Pittsburgh’s Lawrenceville neighborhood—not where you expected to land, but tech jobs here pay 70% of SF salaries while rent is 30%. The math worked. Your apartment has exposed brick (you pretend not to care but you definitely care) and one wall is entirely covered with what you call your “rhythm notation experiments”—tap sequences you’ve been converting into visual data patterns. Some are beautiful enough that people ask if they’re art. You’re still figuring out the answer.</p>
+<p>The apartment smells like the sourdough starter you’ve been maintaining for eight months. This is one of those habits that snuck up on you: you started it as “something analog to balance all the screen time” and now you genuinely get anxious if you forget to feed it. Your 21-year-old self would mock this relentlessly.</p>
+</section>
+<section id="am---movement-before-thinking" class="level3">
+<h3 class="anchored" data-anchor-id="am---movement-before-thinking"><strong>7:15 AM - Movement Before Thinking</strong></h3>
+<p>You don’t stretch anymore—you do a 20-minute routine you invented that’s half yoga, half tap fundamentals, half pure improvisation. (Yes, three halves. You’re aware.) This happens before you check your phone, which is a rule you broke exactly once and paid for with an anxious, reactive day.</p>
+<p>The discipline isn’t what you expected. At Penn, you had to force yourself to practice. Now, if you skip it, your whole day feels wrong. Your body learned something your mind didn’t plan: rhythm isn’t a hobby, it’s how you process reality.</p>
+<p>You practice in socks because your downstairs neighbor, Marcus (62, retired postal worker, Pittsburgh native), asked politely after the first week. You now have coffee with him every Sunday. He tells you stories about the neighborhood in the 80s. This is not a friendship 21-year-old you would have predicted or valued. 26-year-old you considers him one of your most important teachers, though you’d struggle to explain why.</p>
+</section>
+<section id="am---the-work-you-stumbled-into" class="level3">
+<h3 class="anchored" data-anchor-id="am---the-work-you-stumbled-into"><strong>8:00 AM - The Work You Stumbled Into</strong></h3>
+<p>You make a protein smoothie (another new habit—your body composition has actually changed since you started taking fitness seriously at 23) and open your laptop at the kitchen counter that doubles as your desk.</p>
+<p>Your calendar shows: - 9 AM: Client call - Midwest manufacturing company - 11 AM: Weekly sync with Priya and Jake (your “startup survivors group”) - 2 PM: Rehearsal for the CMU collaboration piece - 6 PM: Dinner with the Tuesday crew</p>
+<p>You work for a small consultancy called Analog AI (you didn’t name it), helping traditional businesses implement LLMs without losing their minds or their culture. It’s not what you imagined doing, but the work is satisfying in ways you didn’t anticipate. Yesterday you helped a 50-year-old factory owner in Ohio automate his quoting process. He got emotional on the call. You felt more useful than you ever did building “innovative products” for people who didn’t need them.</p>
+<p>The consultancy is run by two former AWS engineers who got tired of the Bay Area. They hired you because of a blog post you wrote: “What My Dance Teacher Taught Me About Training AI Models.” You thought it was too weird to get traction. It went viral in unexpected circles. Turns out metaphors matter.</p>
+</section>
+<section id="am---the-client-call-that-teaches-you" class="level3">
+<h3 class="anchored" data-anchor-id="am---the-client-call-that-teaches-you"><strong>9:00 AM - The Client Call That Teaches You</strong></h3>
+<p>The manufacturing client, Linda, is 54 and runs a company her father started. She’s sharp, skeptical, and asks better questions than most Stanford grads you’ve met. She wants to know if AI will “make her workers obsolete” and isn’t satisfied with platitudes.</p>
+<p>You spend 40 minutes showing her how to use Claude to handle repetitive quote requests, which frees up her two office staff to focus on the complex custom orders that actually require human judgment. By the end, she’s laughing about how she can finally take a vacation without her phone ringing every hour.</p>
+<p>This call doesn’t feel like “changing the world” the way 21-year-old you imagined. But Linda is going to sleep better tonight. Her employees are going to do more interesting work. This matters more than you expected it to.</p>
+</section>
+<section id="am---the-people-who-know" class="level3">
+<h3 class="anchored" data-anchor-id="am---the-people-who-know"><strong>11:00 AM - The People Who Know</strong></h3>
+<p>Priya and Jake: your cofounders from the failed startup. You meet virtually every Tuesday, supposedly to “network and share opportunities” but really to be honest with each other in ways you can’t be with anyone else.</p>
+<p>Priya is at a FAANG now, making great money, openly miserable. Jake is doing freelance ML work and rock climbing four days a week, making it work somehow. You’re doing the weird consultancy-dance-art thing.</p>
+<p>21-year-old you would see this as failure: you were supposed to stay together and build something huge. 26-year-old you knows this weekly call is one of the most valuable things in your life. These are the only people who understand what it felt like to believe completely in something and watch it dissolve.</p>
+<p>Today Jake mentions he’s thinking of moving to Pittsburgh. “Rent’s cheap and apparently there’s a climbing gym.” You try not to seem too excited. Your Tuesday dinner crew could absorb another person.</p>
+</section>
+<section id="pm---lunch-alone-on-purpose" class="level3">
+<h3 class="anchored" data-anchor-id="pm---lunch-alone-on-purpose"><strong>12:30 PM - Lunch Alone (On Purpose)</strong></h3>
+<p>You walk to the café three blocks away—Commonplace Coffee—and eat a grain bowl while reading. This is new: the deliberate solitude. At Penn you were terrified of eating alone. Now you protect this time fiercely.</p>
+<p>You’re reading “The Timeless Way of Building” by Christopher Alexander (architecture, somehow relevant to both code and choreography) and a novel Priya recommended (you’re trying to read one non-work book a month, usually failing).</p>
+<p>The barista, Emma, knows your order. You have a 90-second conversation about her band’s upcoming show. These micro-relationships that texture your days—this is adulthood in a way 21-year-old you didn’t imagine. Not grand friendships forged in intensity, but gentle consistent presences.</p>
+</section>
+<section id="pm---the-collaboration-you-didnt-see-coming" class="level3">
+<h3 class="anchored" data-anchor-id="pm---the-collaboration-you-didnt-see-coming"><strong>2:00 PM - The Collaboration You Didn’t See Coming</strong></h3>
+<p>You head to Carnegie Mellon’s studio theater for rehearsal. You’re working with a PhD student named Wei who’s researching generative art and a small tap ensemble (four dancers, all paths that led them to Pittsburgh for various unglamorous reasons).</p>
+<p>The piece you’re creating uses AI to generate tap patterns based on audience heartbeat data (they wear sensors). It’s weird. It might be bad. But it’s genuinely novel, and that’s enough for now.</p>
+<p>One of the dancers, Marcus (different Marcus, 28, former professional who pivoted after an injury), has become a genuine friend. He’s the first person you’ve met who also lives in the overlap of technical and artistic. You grab dinner after rehearsals most weeks. Sometimes you just sit in comfortable silence.</p>
+<p>This is what you didn’t understand at 21: creative collaborators at 26 aren’t just talented people. They’re people whose life timing aligns with yours, who have compatible working styles, who’ve also had things not work out and kept going anyway.</p>
+</section>
+<section id="pm---the-productivity-block-you-built" class="level3">
+<h3 class="anchored" data-anchor-id="pm---the-productivity-block-you-built"><strong>4:30 PM - The Productivity Block You Built</strong></h3>
+<p>Back home, you have a two-hour deep work block. You’re writing a guide for the consultancy: “Prompt Engineering for People Who Think AI is Scary.” It’s more fun than it should be.</p>
+<p>You use a Pomodoro timer (25 minutes work, 5 minutes movement breaks where you literally tap out rhythms in your hallway). This system evolved through trial and error after the startup, when you learned that your brain works in rhythms, not hours.</p>
+<p>Your phone is in a drawer in the bathroom. This extreme measure became necessary after you realized you were checking it 80+ times a day. Now it’s 10-15. The first month was genuinely difficult.</p>
+</section>
+<section id="pm---the-tuesday-crew" class="level3">
+<h3 class="anchored" data-anchor-id="pm---the-tuesday-crew"><strong>6:00 PM - The Tuesday Crew</strong></h3>
+<p>Every Tuesday, a rotating group of 4-7 people convenes for dinner. It started accidentally four months ago when you and two neighbors decided to cook together to save money, and it evolved into a thing.</p>
+<p>Tonight it’s at your apartment: You, Sophie (29, works in nonprofit arts admin, has a cat named Algorithm), Dev (25, software engineer at a local startup, makes terrible puns), and Yuki (27, teaches middle school science, makes excellent puns).</p>
+<p>This friend group is nothing like Penn. Nobody went to elite schools. Nobody is “impressive” in obvious ways. Sophie has a master’s degree and makes $42K. Dev is brilliant but has no ambition to join FAANG. Yuki chose teaching over a PhD because she “actually likes teenagers, weirdly.”</p>
+<p>21-year-old you would have been slightly anxious in this group, worried you weren’t impressive enough, measuring your trajectory against theirs. 26-year-old you feels more yourself here than anywhere else.</p>
+<p>You cook together (Dev’s dal, your sourdough, Sophie brings wine, Yuki makes a salad). The conversation moves from local politics to dating apps (everyone’s tired of them) to whether AI is going to destroy art (your group teases you about this topic constantly) to Yuki’s student who wrote a devastatingly good poem about his grandmother.</p>
+<p>At some point Sophie mentions she’s thinking of starting a small press for experimental work by local artists. Everyone starts brainstorming funding strategies. No one suggests a tech solution. You realize this is your community: people who create things that might not scale, that might not matter beyond Pittsburgh, but that matter completely to the people who experience them.</p>
+</section>
+<section id="pm---the-evening-routine-you-engineered" class="level3">
+<h3 class="anchored" data-anchor-id="pm---the-evening-routine-you-engineered"><strong>9:00 PM - The Evening Routine You Engineered</strong></h3>
+<p>The crew leaves around 8:30. You clean up (another new habit: doing dishes immediately, learned from too many mornings ruined by past-you’s laziness).</p>
+<p>You don’t watch Netflix anymore—you realized it was eating hours you resented losing. Instead, you spend 30 minutes on something you’re calling “personal research”: tonight it’s watching old tap performances on YouTube, taking notes on rhythmic structures.</p>
+<p>Then 20 minutes of journaling. Not gratitude journaling or any specific method—just processing the day. The startup therapist (yes, you eventually got therapy after the crash) suggested this. You resisted for months before admitting it helps.</p>
+<p>You read in bed for 30 minutes (fiction only, a rule). Currently it’s a novel by a Pittsburgh author Sophie recommended. It’s slower than what you usually read, and that’s the point.</p>
+</section>
+<section id="pm---the-thoughts-before-sleep" class="level3">
+<h3 class="anchored" data-anchor-id="pm---the-thoughts-before-sleep"><strong>10:45 PM - The Thoughts Before Sleep</strong></h3>
+<p>Lying in the dark, you think about the day. It was good. Nothing spectacular happened. That’s the thing: 21-year-old you was waiting for spectacular. 26-year-old you has learned that a well-structured Tuesday is actually what happiness feels like.</p>
+<p>You have $34,000 in savings now (rebuilt from zero after the startup). You’re making $72K at the consultancy. You’re not rich. You’re also not stressed about money the way many of your peers are.</p>
+<p>You’re creating work that matters to some people. You’re dancing regularly. You have friends who see you. Your body feels good. You’re learning constantly.</p>
+<p>Tomorrow you’re visiting that Ohio factory in person—Linda invited you to see the operation and meet her team. You’re nervous and excited. Thursday you have a potential new client call. Friday there’s a tap jam. Saturday morning you’re meeting Priya who’s flying in to visit, considering the Pittsburgh move herself.</p>
+<p>Your life is smaller than 21-year-old you imagined and infinitely richer than you knew to want.</p>
+<p>The last thought before sleep: You should text Jake about that apartment opening in your building. And you need to feed the sourdough starter in the morning.</p>
+<p>This is not the future you planned. It’s better than that—it’s real.</p>
+</section>
+<section id="thoughts" class="level3">
+<h3 class="anchored" data-anchor-id="thoughts">Thoughts</h3>
+<p>This was another side of me that Claude picked up on more. Since I tend to use Claude for more technical assignments, it definitely identified my interest in tech and made it seem like a lot of my life. The scenarios for the second prompt were very specific as well as the day in the future. I think that personality-wise and in general, the ChatGPT ideas were more accurate, but this is also likely due to the fact that I have been using it for much longer and thus it has more data on me, especially more that does not have to do with finishing assignments…</p>
+<p>I really enjoyed reading it though and it made me reflect more on what is important to me as well as how others could view me.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/emily8354\.github\.io\/comm4190_F25_Using_LLMs_Blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
